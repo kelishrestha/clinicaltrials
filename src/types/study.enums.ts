@@ -8,24 +8,11 @@ export type StudyStatus =
   | "WITHDRAWN"
   | "UNKNOWN";
 
-export type StudyType =
-  | "EXPANDED_ACCESS"
-  | "INTERVENTIONAL"
-  | "OBSERVATIONAL";
+export type StudyType = "EXPANDED_ACCESS" | "INTERVENTIONAL" | "OBSERVATIONAL";
 
-export type StudyPhase =
-  | "NA"
-  | "EARLY_PHASE1"
-  | "PHASE1"
-  | "PHASE2"
-  | "PHASE3"
-  | "PHASE4";
+export type StudyPhase = "NA" | "EARLY_PHASE1" | "PHASE1" | "PHASE2" | "PHASE3" | "PHASE4";
 
-
-export type StudyDesignAllocation =
-  | "RANDOMIZED"
-  | "NON_RANDOMIZED"
-  | "NA";
+export type StudyDesignAllocation = "RANDOMIZED" | "NON_RANDOMIZED" | "NA";
 
 export type StudyDesignInterventionModel =
   | "SINGLE_GROUP"
@@ -63,24 +50,17 @@ export type StudyDesignTimePerspective =
   | "CROSS_SECTIONAL"
   | "OTHER";
 
-export type StudyDesignEnrollmentType =
-  | "ACTUAL"
-  | "ESTIMATED";
+export type StudyDesignEnrollmentType = "ACTUAL" | "ESTIMATED";
 
-export type StudyDesignMasking =
-  | "NONE"
-  | "SINGLE"
-  | "DOUBLE"
-  | "TRIPLE"
-  | "QUADRUPLE";
+export type StudyDesignMasking = "NONE" | "SINGLE" | "DOUBLE" | "TRIPLE" | "QUADRUPLE";
 
 export type StudyDesignWhoMasked =
   | "PARTICIPANT"
   | "CARE_PROVIDER"
   | "INVESTIGATOR"
-  | "OUTCOMES_ASSESSOR"
+  | "OUTCOMES_ASSESSOR";
 
 export type StudyDesignBioSpecRetention =
   | "NONE_RETAINED"
   | "SAMPLES_WITH_DNA"
-  | "SAMPLES_WITHOUT_DNA"
+  | "SAMPLES_WITHOUT_DNA";

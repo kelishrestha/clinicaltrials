@@ -10,9 +10,7 @@ interface StudyHeaderProps {
   study: Study;
 }
 
-export function StudyHeader({
-  study,
-}: StudyHeaderProps) {
+export function StudyHeader({ study }: StudyHeaderProps) {
   const protocol = study.protocolSection;
 
   return (
@@ -28,29 +26,15 @@ export function StudyHeader({
       <Card className="rounded-sm text-left">
         <CardContent className="space-y-6 p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <Badge variant="outline">
-              {
-                protocol.identificationModule
-                  .nctId
-              }
-            </Badge>
+            <Badge variant="outline">{protocol.identificationModule.nctId}</Badge>
           </div>
 
           <div className="space-y-2">
             <h1 className="text-3xl text-gray-700! font-bold tracking-tight">
-              {
-                protocol.identificationModule
-                  .briefTitle
-              }
+              {protocol.identificationModule.briefTitle}
             </h1>
-            {protocol.identificationModule
-              .officialTitle && (
-              <p className="text-muted-foreground">
-                {
-                  protocol.identificationModule
-                    .officialTitle
-                }
-              </p>
+            {protocol.identificationModule.officialTitle && (
+              <p className="text-muted-foreground">{protocol.identificationModule.officialTitle}</p>
             )}
           </div>
         </CardContent>

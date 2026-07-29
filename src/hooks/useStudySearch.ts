@@ -8,9 +8,7 @@ export function useStudySearch() {
 
   const pageToken = params.get("pageToken") ?? undefined;
 
-  const pageSize = Number(
-    params.get("pageSize") ?? "20"
-  );
+  const pageSize = Number(params.get("pageSize") ?? "20");
 
   const search = useMemo(
     () => ({
@@ -18,12 +16,10 @@ export function useStudySearch() {
       pageToken,
       pageSize,
     }),
-    [query, pageToken, pageSize]
+    [query, pageToken, pageSize],
   );
 
-  function update(
-    values: Partial<typeof search>
-  ) {
+  function update(values: Partial<typeof search>) {
     const next = new URLSearchParams(params);
 
     Object.entries(values).forEach(([key, value]) => {

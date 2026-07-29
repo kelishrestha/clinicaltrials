@@ -5,9 +5,7 @@ interface Props {
   description?: DescriptionModule;
 }
 
-export function DescriptionCard({
-  description,
-}: Props) {
+export function DescriptionCard({ description }: Props) {
   if (!description) return null;
 
   return (
@@ -15,9 +13,7 @@ export function DescriptionCard({
       <div className="space-y-6">
         {description.briefSummary && (
           <section className="space-y-2">
-            <h3 className="font-semibold">
-              Brief Summary
-            </h3>
+            <h3 className="font-semibold">Brief Summary</h3>
 
             <pre className="whitespace-pre-wrap font-sans text-sm leading-7">
               {description.briefSummary}
@@ -27,9 +23,7 @@ export function DescriptionCard({
 
         {description.detailedDescription && (
           <section className="space-y-2">
-            <h3 className="font-semibold">
-              Detailed Description
-            </h3>
+            <h3 className="font-semibold">Detailed Description</h3>
 
             <pre className="whitespace-pre-wrap font-sans text-sm leading-7">
               {description.detailedDescription}

@@ -1,4 +1,9 @@
-import type { StudyDesignBioSpecRetention, StudyDesignEnrollmentType, StudyDesignMasking, StudyDesignWhoMasked } from "./study.enums";
+import type {
+  StudyDesignBioSpecRetention,
+  StudyDesignEnrollmentType,
+  StudyDesignMasking,
+  StudyDesignWhoMasked,
+} from "./study.enums";
 import { type ProtocolSection } from "./studySections";
 export interface Study {
   protocolSection: ProtocolSection;
@@ -53,6 +58,6 @@ export interface MaskingInfo {
 }
 
 export interface BioSpec {
-    retention?: StudyDesignBioSpecRetention;
-    description?: string;
+  retention?: StudyDesignBioSpecRetention;
+  description?: string;
 }

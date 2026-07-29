@@ -5,8 +5,8 @@ interface Props {
 }
 
 const statusVariant: Record<
-string,
-"default" | "secondary" | "destructive" | "outline" | "accent" | "warning"
+  string,
+  "default" | "secondary" | "destructive" | "outline" | "accent" | "warning"
 > = {
   RECRUITING: "default",
   ACTIVE_NOT_RECRUITING: "warning",
@@ -24,14 +24,8 @@ string,
   UNKNOWN: "secondary",
 };
 
-export function StudyStatusBadge({
-  status,
-}: Props) {
+export function StudyStatusBadge({ status }: Props) {
   return (
-    <Badge
-      variant={statusVariant[status] ?? "secondary"}
-    >
-      {status.replaceAll("_", " ")}
-    </Badge>
+    <Badge variant={statusVariant[status] ?? "secondary"}>{status.replaceAll("_", " ")}</Badge>
   );
 }

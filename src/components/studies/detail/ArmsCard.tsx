@@ -5,33 +5,20 @@ interface Props {
   arms?: ArmsInterventionsModule;
 }
 
-export function ArmsCard({
-  arms,
-}: Props) {
+export function ArmsCard({ arms }: Props) {
   if (!arms) return null;
 
   return (
     <DetailCard title="Arms & Interventions">
       <div className="space-y-8">
         {arms.armGroups?.map((arm) => (
-          <div
-            key={arm.label}
-            className="rounded-lg border p-4"
-          >
-            <h3 className="font-semibold">
-              {arm.label}
-            </h3>
+          <div key={arm.label} className="rounded-lg border p-4">
+            <h3 className="font-semibold">{arm.label}</h3>
 
-            {arm.type && (
-              <p className="text-sm text-muted-foreground">
-                {arm.type}
-              </p>
-            )}
+            {arm.type && <p className="text-sm text-muted-foreground">{arm.type}</p>}
 
             {arm.description && (
-              <pre className="mt-3 whitespace-pre-wrap font-sans text-sm">
-                {arm.description}
-              </pre>
+              <pre className="mt-3 whitespace-pre-wrap font-sans text-sm">{arm.description}</pre>
             )}
 
             {arm.interventionNames?.length ? (
@@ -46,23 +33,14 @@ export function ArmsCard({
 
         {arms.interventions?.length ? (
           <div>
-            <h3 className="mb-4 text-lg font-semibold">
-              Interventions
-            </h3>
+            <h3 className="mb-4 text-lg font-semibold">Interventions</h3>
 
             <div className="space-y-4">
               {arms.interventions.map((item) => (
-                <div
-                  key={item.name}
-                  className="rounded-lg border p-4"
-                >
-                  <p className="font-medium">
-                    {item.name}
-                  </p>
+                <div key={item.name} className="rounded-lg border p-4">
+                  <p className="font-medium">{item.name}</p>
 
-                  <p className="text-sm text-muted-foreground">
-                    {item.type}
-                  </p>
+                  <p className="text-sm text-muted-foreground">{item.type}</p>
 
                   {item.description && (
                     <pre className="mt-3 whitespace-pre-wrap font-sans text-sm">

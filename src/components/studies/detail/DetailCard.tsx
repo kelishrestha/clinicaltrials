@@ -1,21 +1,13 @@
 import { type ReactNode } from "react";
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface DetailCardProps {
   title: string;
   children: ReactNode;
 }
 
-export function DetailCard({
-  title,
-  children,
-}: DetailCardProps) {
+export function DetailCard({ title, children }: DetailCardProps) {
   return (
     <Card>
       <CardHeader>

@@ -8,7 +8,6 @@ import { StudyHeader } from "@/components/studies/detail/StudyHeader";
 import { StatusCard } from "@/components/studies/detail/StatusCard";
 import { SponsorCard } from "@/components/studies/detail/SponsorCard";
 import { EligibilityCard } from "@/components/studies/detail/EligibilityCard";
-import { DescriptionCard } from "@/components/studies/detail/DescriptionCard";
 import { ConditionsCard } from "@/components/studies/detail/ConditionsCard";
 import { ArmsCard } from "@/components/studies/detail/ArmsCard";
 import { ContactsCard } from "@/components/studies/detail/ContactsCard";
@@ -20,11 +19,7 @@ import { DesignCard } from "@/components/studies/detail/DesignCard";
 export default function StudyDetailsPage() {
   const { nctId = "" } = useParams();
 
-  const {
-    data,
-    isLoading,
-    isError,
-  } = useStudy(nctId);
+  const { data, isLoading, isError } = useStudy(nctId);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -42,52 +37,27 @@ export default function StudyDetailsPage() {
         <StudyHeader study={data} />
 
         <div className="grid gap-6 lg:grid-cols-2">
-          <StatusCard
-            status={protocol.statusModule}
-          />
+          <StatusCard status={protocol.statusModule} />
 
-          <SponsorCard
-            sponsor={
-              protocol.sponsorCollaboratorsModule
-            }
-          />
-          <DesignCard
-            design={protocol.designModule}
-          />
+          <SponsorCard sponsor={protocol.sponsorCollaboratorsModule} />
+          <DesignCard design={protocol.designModule} />
 
           {/* <DescriptionCard
             description={protocol.descriptionModule}
           /> */}
 
-          <ConditionsCard
-            conditions={protocol.conditionsModule}
-          />
+          <ConditionsCard conditions={protocol.conditionsModule} />
 
-          <EligibilityCard
-            eligibility={
-              protocol.eligibilityModule
-            }
-          />
-          <ArmsCard
-            arms={protocol.armsInterventionsModule}
-          />
+          <EligibilityCard eligibility={protocol.eligibilityModule} />
+          <ArmsCard arms={protocol.armsInterventionsModule} />
 
-          <ContactsCard
-            contacts={protocol.contactsLocationsModule}
-          />
+          <ContactsCard contacts={protocol.contactsLocationsModule} />
 
-          <LocationsCard
-            locations={protocol.contactsLocationsModule}
-          />
+          <LocationsCard locations={protocol.contactsLocationsModule} />
 
-          <ReferencesCard
-            references={protocol.referencesModule}
-          />
+          <ReferencesCard references={protocol.referencesModule} />
 
-          <DocumentsCard
-            documents={protocol.documentsModule}
-          />
-
+          <DocumentsCard documents={protocol.documentsModule} />
         </div>
       </div>
     </AppLayout>

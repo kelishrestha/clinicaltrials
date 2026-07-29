@@ -1,17 +1,12 @@
 import type { DocumentsModule } from "@/types/studyModules";
 import { DetailCard } from "./DetailCard";
 
-
-
 interface Props {
   documents?: DocumentsModule;
 }
 
-export function DocumentsCard({
-  documents,
-}: Props) {
-  const docs =
-    documents?.largeDocumentModule?.documents;
+export function DocumentsCard({ documents }: Props) {
+  const docs = documents?.largeDocumentModule?.documents;
 
   if (!docs?.length) {
     return null;

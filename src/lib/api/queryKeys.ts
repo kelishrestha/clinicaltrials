@@ -3,11 +3,9 @@ export const studyKeys = {
 
   lists: () => [...studyKeys.all, "list"] as const,
 
-  list: (params: object) =>
-    [...studyKeys.lists(), params] as const,
+  list: (params: object) => [...studyKeys.lists(), params] as const,
 
   details: () => [...studyKeys.all, "detail"] as const,
 
-  detail: (id: string) =>
-    [...studyKeys.details(), id] as const,
+  detail: (id: string) => [...studyKeys.details(), id] as const,
 };

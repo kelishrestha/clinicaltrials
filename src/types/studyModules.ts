@@ -1,6 +1,23 @@
 import { type Organization } from "./study";
-import type { BioSpec, Contact, Document, EnrollmentInfo, Location, MaskingInfo, Reference } from "./study";
-import type { StudyDesignAllocation, StudyDesignInterventionModel, StudyDesignObservationalModel, StudyDesignPrimaryPurpose, StudyDesignTimePerspective, StudyPhase, StudyStatus, StudyType } from './study.enums';
+import type {
+  BioSpec,
+  Contact,
+  Document,
+  EnrollmentInfo,
+  Location,
+  MaskingInfo,
+  Reference,
+} from "./study";
+import type {
+  StudyDesignAllocation,
+  StudyDesignInterventionModel,
+  StudyDesignObservationalModel,
+  StudyDesignPrimaryPurpose,
+  StudyDesignTimePerspective,
+  StudyPhase,
+  StudyStatus,
+  StudyType,
+} from "./study.enums";
 
 export interface IdentificationModule {
   nctId: string;
@@ -72,7 +89,6 @@ export interface EligibilityModule {
   stdAges?: string[];
 }
 
-
 export interface SponsorCollaboratorsModule {
   leadSponsor: Organization;
 
@@ -107,8 +123,6 @@ export interface ArmsInterventionsModule {
   interventions?: Intervention[];
 }
 
-
-
 export interface ContactsLocationsModule {
   centralContacts?: Contact[];
 
@@ -125,7 +139,6 @@ export interface DocumentsModule {
   };
 }
 
-
 export interface DesignModule {
   studyType?: StudyType;
 
@@ -135,7 +148,7 @@ export interface DesignModule {
     individual?: boolean;
     intermediate?: boolean;
     treatment?: boolean;
-  }
+  };
 
   patientRegistry?: boolean;
 
@@ -145,7 +158,7 @@ export interface DesignModule {
 
   numPhases?: number;
 
-  designInfo?:  {
+  designInfo?: {
     allocation?: StudyDesignAllocation;
     interventionModel?: StudyDesignInterventionModel;
     interventionModelDescription?: string;
@@ -155,5 +168,5 @@ export interface DesignModule {
     maskingInfo?: MaskingInfo;
     bioSpec?: BioSpec;
     enrollmentInfo?: EnrollmentInfo;
-  }
+  };
 }

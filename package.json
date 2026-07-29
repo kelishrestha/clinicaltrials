@@ -1,13 +1,15 @@
 {
   "name": "clinicaltrials",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
-    "lint:fix": "oxlint --type-aware --fix",
+    "lint:fix": "oxlint --fix-dangerously .",
+    "format": "oxfmt . --write",
+    "fix-all": "pnpm lint:fix && pnpm format",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -25,6 +27,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
     "lucide-react": "^1.27.0",
+    "oxlint-tsgolint": "^7.0.2001",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-hook-form": "^7.83.0",
@@ -47,6 +50,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "babel-plugin-react-compiler": "^1.0.0",
+    "oxfmt": "^0.61.0",
     "oxlint": "^1.71.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
