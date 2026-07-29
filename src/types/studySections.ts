@@ -7,6 +7,7 @@ import type {
   DocumentsModule,
   EligibilityModule,
   IdentificationModule,
+  OutcomesModule,
   ReferencesModule,
   SponsorCollaboratorsModule,
   StatusModule,
@@ -34,4 +35,6 @@ export interface ProtocolSection {
   referencesModule?: ReferencesModule;
 
   documentsModule?: DocumentsModule;
+
+  outcomesModule?: OutcomesModule;
 }

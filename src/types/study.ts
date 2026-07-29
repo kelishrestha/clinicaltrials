@@ -61,3 +61,9 @@ export interface BioSpec {
   retention?: StudyDesignBioSpecRetention;
   description?: string;
 }
+
+export interface Outcome {
+  measure?: string;
+  description?: string;
+  timeFrame?: string;
+}

@@ -5,6 +5,7 @@ import { StudySearch } from "@/components/search/StudySearch";
 
 import { useStudies } from "@/hooks/useStudies";
 import { useStudySearch } from "@/hooks/useStudySearch";
+import { SectionLoader } from "@/components/common/SectionLoader";
 
 export default function Home() {
   const { search, setQuery } = useStudySearch();
@@ -15,14 +16,14 @@ export default function Home() {
     <AppLayout>
       <div className="space-y-8">
         <header>
-          <h1 className="text-4xl font-bold">Clinical Trials</h1>
+          <h1 className="text-4xl font-bold text-primary!">Clinical Trials</h1>
 
-          <p className="text-muted-foreground">Search studies from ClinicalTrials.gov</p>
+          <p className="text-muted-foreground text-xs">Search studies from ClinicalTrials.gov</p>
         </header>
 
         <StudySearch value={search.query} onChange={setQuery} />
 
-        {isLoading && <p>Loading studies...</p>}
+        {isLoading && <SectionLoader title="studies" />}
 
         {isError && <p>Unable to load studies.</p>}
 

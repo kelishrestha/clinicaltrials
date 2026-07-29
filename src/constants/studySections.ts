@@ -5,6 +5,10 @@ export interface StudyNavigationItem {
 
 export const studyNavigation: StudyNavigationItem[] = [
   {
+    id: "identification",
+    label: "Identification",
+  },
+  {
     id: "status",
     label: "Status",
   },
@@ -31,6 +35,10 @@ export const studyNavigation: StudyNavigationItem[] = [
   {
     id: "arms",
     label: "Arms",
+  },
+  {
+    id: "outcomes",
+    label: "Outcome Measures",
   },
   {
     id: "contacts",

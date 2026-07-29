@@ -18,6 +18,9 @@ import { DesignCard } from "@/components/studies/detail/DesignCard";
 import { DescriptionCard } from "@/components/studies/detail/DescriptionCard";
 import { StudyNavigation } from "@/components/studies/detail/StudyNavigation";
 import { useFloatingSidebar } from "@/hooks/useFloatingSidebar";
+import { OutcomeCard } from "@/components/studies/detail/OutcomeCard";
+import { IdentificationCard } from "@/components/studies/detail/IdentificationCard";
+import { PageLoader } from "@/components/common/PageLoader";
 
 export default function StudyDetailsPage() {
   const { nctId = "" } = useParams();
@@ -26,7 +29,7 @@ export default function StudyDetailsPage() {
   const { data, isLoading, isError } = useStudy(nctId);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <PageLoader text="Loading study..." />;
   }
 
   if (isError || !data) {
@@ -47,6 +50,8 @@ export default function StudyDetailsPage() {
           <main ref={contentRef} className="min-w-0 space-y-6">
             <StudyHeader study={data} />
 
+            <IdentificationCard identification={protocol.identificationModule} />
+
             <StatusCard status={protocol.statusModule} />
 
             <SponsorCard sponsor={protocol.sponsorCollaboratorsModule} />
@@ -60,6 +65,8 @@ export default function StudyDetailsPage() {
             <EligibilityCard eligibility={protocol.eligibilityModule} />
 
             <ArmsCard arms={protocol.armsInterventionsModule} />
+
+            <OutcomeCard outcomes={protocol.outcomesModule} />
 
             <ContactsCard contacts={protocol.contactsLocationsModule} />
 

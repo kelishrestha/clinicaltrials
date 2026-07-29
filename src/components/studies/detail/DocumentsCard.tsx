@@ -1,5 +1,6 @@
 import type { DocumentsModule } from "@/types/studyModules";
 import { DetailCard } from "./DetailCard";
+import { EmptyState } from "./EmptyState";
 
 interface Props {
   documents?: DocumentsModule;
@@ -8,25 +9,28 @@ interface Props {
 export function DocumentsCard({ documents }: Props) {
   const docs = documents?.largeDocumentModule?.documents;
 
-  if (!docs?.length) {
-    return null;
-  }
-
   return (
     <DetailCard id="documents" title="Study Documents">
-      <div className="space-y-3">
-        {docs.map((doc) => (
-          <a
-            key={doc.url}
-            href={doc.url}
-            target="_blank"
-            rel="noreferrer"
-            className="block rounded-lg border p-4 hover:bg-muted"
-          >
-            {doc.label}
-          </a>
-        ))}
-      </div>
+      {!docs?.length ? (
+        <EmptyState
+          title="No documents available"
+          description="This study does not include any published documents."
+        />
+      ) : (
+        <div className="space-y-3">
+          {docs.map((doc) => (
+            <a
+              key={doc.url}
+              href={doc.url}
+              target="_blank"
+              rel="noreferrer"
+              className="block rounded-lg border p-4 hover:bg-muted"
+            >
+              {doc.label}
+            </a>
+          ))}
+        </div>
+      )}
     </DetailCard>
   );
 }

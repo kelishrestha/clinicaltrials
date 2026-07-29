@@ -12,7 +12,7 @@ export function StudyHeader({ study }: StudyHeaderProps) {
 
   return (
     <div className="space-y-4">
-      <Card className="rounded-sm text-left">
+      <Card className="rounded-sm">
         <CardContent className="space-y-6 p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <Badge variant="outline">{protocol.identificationModule.nctId}</Badge>

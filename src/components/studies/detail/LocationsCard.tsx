@@ -1,28 +1,37 @@
 import type { ContactsLocationsModule } from "@/types/studyModules";
 import { DetailCard } from "./DetailCard";
+import { EmptyState } from "./EmptyState";
 
 interface Props {
   locations?: ContactsLocationsModule;
 }
 
 export function LocationsCard({ locations }: Props) {
-  if (!locations?.locations?.length) return null;
-
   return (
     <DetailCard id="locations" title="Study Locations">
-      <div className="space-y-4">
-        {locations.locations.map((location, index) => (
-          <div key={`${location.facility}-${index}`} className="rounded-lg border p-4">
-            <h3 className="font-semibold">{location.facility}</h3>
+      {!locations?.locations?.length ? (
+        <EmptyState
+          title="No study locations available"
+          description="This study does not include any study locations."
+        />
+      ) : (
+        <div className="space-y-4">
+          {locations.locations.map((location, index) => (
+            <div
+              key={`${location.facility}-${index}`}
+              className="rounded-lg border border-secondary p-4"
+            >
+              <h3 className="font-semibold">{location.facility}</h3>
 
-            <p className="text-sm text-muted-foreground">
-              {[location.city, location.state, location.country].filter(Boolean).join(", ")}
-            </p>
+              <p className="text-sm text-muted-foreground">
+                {[location.city, location.state, location.country].filter(Boolean).join(", ")}
+              </p>
 
-            {location.status && <p className="mt-2 text-sm">Status: {location.status}</p>}
-          </div>
-        ))}
-      </div>
+              {location.status && <p className="mt-2 text-sm">Status: {location.status}</p>}
+            </div>
+          ))}
+        </div>
+      )}
     </DetailCard>
   );
 }

@@ -6,6 +6,7 @@ import type {
   EnrollmentInfo,
   Location,
   MaskingInfo,
+  Outcome,
   Reference,
 } from "./study";
 import type {
@@ -34,6 +35,10 @@ export interface IdentificationModule {
   briefTitle: string;
 
   officialTitle?: string;
+
+  acronym?: string;
+
+  secondaryIdInfos?: SecondaryId[];
 }
 
 export interface StatusModule {
@@ -169,4 +174,17 @@ export interface DesignModule {
     bioSpec?: BioSpec;
     enrollmentInfo?: EnrollmentInfo;
   };
+}
+
+export interface OutcomesModule {
+  primaryOutcomes?: Outcome[];
+  secondaryOutcomes?: Outcome[];
+  otherOutcomes?: Outcome[];
+}
+
+export interface SecondaryId {
+  id?: string;
+  type?: string;
+  domain?: string;
+  linkingId?: string;
 }
