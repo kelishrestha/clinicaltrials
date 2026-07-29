@@ -17,18 +17,21 @@ export function ArmsCard({ arms }: Props) {
             <div key={arm.label} className="rounded-lg border border-secondary p-4">
               <h3 className="font-semibold">{arm.label}</h3>
 
-              {arm.type && <p className="text-sm text-muted-foreground">{arm.type}</p>}
+              {arm.type && <p className="text-sm text-muted-foreground">Type: {arm.type}</p>}
 
               {arm.description && (
                 <pre className="mt-3 whitespace-pre-wrap font-sans text-sm">{arm.description}</pre>
               )}
 
               {arm.interventionNames?.length ? (
-                <ul className="mt-3 list-disc pl-5 text-sm">
-                  {arm.interventionNames.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
+                <>
+                  <h4>Intervention names</h4>
+                  <ul className="mt-3 list-disc pl-5 text-sm">
+                    {arm.interventionNames.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </>
               ) : null}
             </div>
           ))}
@@ -42,7 +45,7 @@ export function ArmsCard({ arms }: Props) {
                   <div key={item.name} className="rounded-lg border border-secondary p-4">
                     <p className="font-medium">{item.name}</p>
 
-                    <p className="text-sm text-muted-foreground">{item.type}</p>
+                    <p className="text-sm text-muted-foreground">Type: {item.type}</p>
 
                     {item.description && (
                       <pre className="mt-3 whitespace-pre-wrap font-sans text-sm">
