@@ -10,7 +10,7 @@ export function EligibilityCard({ eligibility }: Props) {
   if (!eligibility) return null;
 
   return (
-    <DetailCard title="Eligibility">
+    <DetailCard id="eligibility" title="Eligibility">
       <div className="space-y-6">
         <div>
           <InfoRow

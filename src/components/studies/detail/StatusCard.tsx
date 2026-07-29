@@ -9,7 +9,7 @@ interface Props {
 
 export function StatusCard({ status }: Props) {
   return (
-    <DetailCard title="Study Status">
+    <DetailCard id="status" title="Study Status">
       <dl className="grid gap-6 sm:grid-cols-2">
         <div>
           <dt className="text-sm text-muted-foreground">Recruitment Status</dt>

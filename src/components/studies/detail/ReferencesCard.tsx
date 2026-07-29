@@ -11,7 +11,7 @@ export function ReferencesCard({ references }: Props) {
   }
 
   return (
-    <DetailCard title="References">
+    <DetailCard id="references" title="References">
       <ul className="space-y-4">
         {references.references.map((reference, index) => (
           <li key={reference.pmid ?? index} className="rounded-lg border p-4">

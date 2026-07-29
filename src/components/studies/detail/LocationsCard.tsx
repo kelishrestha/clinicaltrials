@@ -9,7 +9,7 @@ export function LocationsCard({ locations }: Props) {
   if (!locations?.locations?.length) return null;
 
   return (
-    <DetailCard title="Study Locations">
+    <DetailCard id="locations" title="Study Locations">
       <div className="space-y-4">
         {locations.locations.map((location, index) => (
           <div key={`${location.facility}-${index}`} className="rounded-lg border p-4">

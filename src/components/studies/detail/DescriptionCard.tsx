@@ -9,7 +9,7 @@ export function DescriptionCard({ description }: Props) {
   if (!description) return null;
 
   return (
-    <DetailCard title="Description">
+    <DetailCard id="description" title="Description">
       <div className="space-y-6">
         {description.briefSummary && (
           <section className="space-y-2">

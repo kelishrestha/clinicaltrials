@@ -13,7 +13,7 @@ export function DocumentsCard({ documents }: Props) {
   }
 
   return (
-    <DetailCard title="Study Documents">
+    <DetailCard id="documents" title="Study Documents">
       <div className="space-y-3">
         {docs.map((doc) => (
           <a

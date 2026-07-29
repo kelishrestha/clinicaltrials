@@ -11,7 +11,7 @@ export function ContactsCard({ contacts }: Props) {
   }
 
   return (
-    <DetailCard title="Central Contacts">
+    <DetailCard id="contacts" title="Central Contacts">
       <div className="space-y-4">
         {contacts.centralContacts.map((contact, index) => (
           <div key={`${contact.name}-${index}`} className="rounded-lg border p-4">

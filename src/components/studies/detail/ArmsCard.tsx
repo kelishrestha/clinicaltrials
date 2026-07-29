@@ -9,7 +9,7 @@ export function ArmsCard({ arms }: Props) {
   if (!arms) return null;
 
   return (
-    <DetailCard title="Arms & Interventions">
+    <DetailCard id="arms" title="Arms & Interventions">
       <div className="space-y-8">
         {arms.armGroups?.map((arm) => (
           <div key={arm.label} className="rounded-lg border p-4">

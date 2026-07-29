@@ -12,7 +12,7 @@ export function ConditionsCard({ conditions }: Props) {
   if (!conditions) return null;
 
   return (
-    <DetailCard title="Conditions">
+    <DetailCard id="conditions" title="Conditions">
       <div className="space-y-6">
         <div>
           <h3 className="mb-3 font-semibold">Conditions</h3>

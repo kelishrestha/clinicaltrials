@@ -7,7 +7,7 @@ interface Props {
 
 export function SponsorCard({ sponsor }: Props) {
   return (
-    <DetailCard title="Sponsor">
+    <DetailCard id="sponsor" title="Sponsor">
       <div className="space-y-4">
         <div>
           <p className="text-sm text-muted-foreground">Lead Sponsor</p>

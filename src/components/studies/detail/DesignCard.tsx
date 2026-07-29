@@ -10,7 +10,7 @@ export function DesignCard({ design }: Props) {
   if (!design) return null;
 
   return (
-    <DetailCard title="Study Design">
+    <DetailCard id="design" title="Study Design">
       <div className="space-y-6">
         <div className="grid gap-2">
           <InfoRow label="Study Type" value={design.studyType} />

@@ -1,6 +1,3 @@
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
-
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -15,14 +12,6 @@ export function StudyHeader({ study }: StudyHeaderProps) {
 
   return (
     <div className="space-y-4">
-      <Link
-        to="/"
-        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-      >
-        <ArrowLeft className="h-4 w-4" />
-        Back to Studies
-      </Link>
-
       <Card className="rounded-sm text-left">
         <CardContent className="space-y-6 p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">

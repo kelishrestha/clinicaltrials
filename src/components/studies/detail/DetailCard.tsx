@@ -1,15 +1,14 @@
-import { type ReactNode } from "react";
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface DetailCardProps {
+  id?: string;
   title: string;
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-export function DetailCard({ title, children }: DetailCardProps) {
+export function DetailCard({ id, title, children }: DetailCardProps) {
   return (
-    <Card>
+    <Card id={id} data-study-section className="scroll-mt-24">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
