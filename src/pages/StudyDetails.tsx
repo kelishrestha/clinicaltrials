@@ -1,44 +1,95 @@
 import { useParams } from "react-router-dom";
 
+import AppLayout from "@/layouts/AppLayout";
+
 import { useStudy } from "../hooks/useStudy";
 
-export default function StudyDetails() {
+import { StudyHeader } from "@/components/studies/detail/StudyHeader";
+import { StatusCard } from "@/components/studies/detail/StatusCard";
+import { SponsorCard } from "@/components/studies/detail/SponsorCard";
+import { EligibilityCard } from "@/components/studies/detail/EligibilityCard";
+import { DescriptionCard } from "@/components/studies/detail/DescriptionCard";
+import { ConditionsCard } from "@/components/studies/detail/ConditionsCard";
+import { ArmsCard } from "@/components/studies/detail/ArmsCard";
+import { ContactsCard } from "@/components/studies/detail/ContactsCard";
+import { LocationsCard } from "@/components/studies/detail/LocationsCard";
+import { ReferencesCard } from "@/components/studies/detail/ReferencesCard";
+import { DocumentsCard } from "@/components/studies/detail/DocumentsCard";
+import { DesignCard } from "@/components/studies/detail/DesignCard";
+
+export default function StudyDetailsPage() {
   const { nctId = "" } = useParams();
 
-  const { data, isLoading, error } = useStudy(nctId);
+  const {
+    data,
+    isLoading,
+    isError,
+  } = useStudy(nctId);
 
-  if (isLoading) return <h2>Loading...</h2>;
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  if (error) return <h2>Unable to load study.</h2>;
+  if (isError || !data) {
+    return <div>Unable to load study.</div>;
+  }
 
-  const study = data?.protocolSection;
+  const protocol = data.protocolSection;
 
   return (
-    <div style={{ padding: 24 }}>
-      <h1>{study?.identificationModule.briefTitle}</h1>
+    <AppLayout>
+      <div className="space-y-6">
+        <StudyHeader study={data} />
 
-      <p>
-        <strong>NCT ID:</strong>{" "}
-        {study?.identificationModule.nctId}
-      </p>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <StatusCard
+            status={protocol.statusModule}
+          />
 
-      <p>
-        <strong>Status:</strong>{" "}
-        {study?.statusModule.overallStatus}
-      </p>
+          <SponsorCard
+            sponsor={
+              protocol.sponsorCollaboratorsModule
+            }
+          />
+          <DesignCard
+            design={protocol.designModule}
+          />
 
-      <p>
-        <strong>Conditions:</strong>{" "}
-        {study?.conditionsModule?.conditions?.join(", ")}
-      </p>
+          {/* <DescriptionCard
+            description={protocol.descriptionModule}
+          /> */}
 
-      <p>
-        <strong>Brief Summary:</strong>
-      </p>
+          <ConditionsCard
+            conditions={protocol.conditionsModule}
+          />
 
-      <p>
-        {study?.descriptionModule?.briefSummary}
-      </p>
-    </div>
+          <EligibilityCard
+            eligibility={
+              protocol.eligibilityModule
+            }
+          />
+          <ArmsCard
+            arms={protocol.armsInterventionsModule}
+          />
+
+          <ContactsCard
+            contacts={protocol.contactsLocationsModule}
+          />
+
+          <LocationsCard
+            locations={protocol.contactsLocationsModule}
+          />
+
+          <ReferencesCard
+            references={protocol.referencesModule}
+          />
+
+          <DocumentsCard
+            documents={protocol.documentsModule}
+          />
+
+        </div>
+      </div>
+    </AppLayout>
   );
 }

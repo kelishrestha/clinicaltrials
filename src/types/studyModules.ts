@@ -1,5 +1,6 @@
 import { type Organization } from "./study";
-import type { Contact, Location } from "./study";
+import type { BioSpec, Contact, Document, EnrollmentInfo, Location, MaskingInfo, Reference } from "./study";
+import type { StudyDesignAllocation, StudyDesignInterventionModel, StudyDesignObservationalModel, StudyDesignPrimaryPurpose, StudyDesignTimePerspective, StudyPhase, StudyStatus, StudyType } from './study.enums';
 
 export interface IdentificationModule {
   nctId: string;
@@ -19,7 +20,7 @@ export interface IdentificationModule {
 }
 
 export interface StatusModule {
-  overallStatus: string;
+  overallStatus: StudyStatus;
 
   startDateStruct?: {
     date: string;
@@ -112,4 +113,47 @@ export interface ContactsLocationsModule {
   centralContacts?: Contact[];
 
   locations?: Location[];
+}
+
+export interface ReferencesModule {
+  references?: Reference[];
+}
+
+export interface DocumentsModule {
+  largeDocumentModule?: {
+    documents?: Document[];
+  };
+}
+
+
+export interface DesignModule {
+  studyType?: StudyType;
+
+  nPtrsToThisExpAccNctId?: number;
+
+  expandedAccessTypes?: {
+    individual?: boolean;
+    intermediate?: boolean;
+    treatment?: boolean;
+  }
+
+  patientRegistry?: boolean;
+
+  targetDuration?: string;
+
+  phases?: StudyPhase;
+
+  numPhases?: number;
+
+  designInfo?:  {
+    allocation?: StudyDesignAllocation;
+    interventionModel?: StudyDesignInterventionModel;
+    interventionModelDescription?: string;
+    primaryPurpose?: StudyDesignPrimaryPurpose;
+    observationalModel?: StudyDesignObservationalModel;
+    timePerspective?: StudyDesignTimePerspective;
+    maskingInfo?: MaskingInfo;
+    bioSpec?: BioSpec;
+    enrollmentInfo?: EnrollmentInfo;
+  }
 }

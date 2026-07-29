@@ -1,0 +1,73 @@
+{
+  "studyType": {
+    "EXPANDED_ACCESS": "Expanded Access",
+    "INTERVENTIONAL": "Interventional",
+    "OBSERVATIONAL": "Observational"
+  },
+  "phase": {
+    "NA": "Not Applicable",
+    "EARLY_PHASE1": "Early Phase 1",
+    "PHASE1": "Phase 1",
+    "PHASE2": "Phase 2",
+    "PHASE3": "Phase 3",
+    "PHASE4": "Phase 4"
+  },
+  "allocation": {
+    "RANDOMIZED": "Randomized",
+    "NON_RANDOMIZED": "Non-Randomized",
+    "NA": "N/A"
+  },
+  "interventionModel": {
+    "SINGLE_GROUP": "Single Group Assignment",
+    "PARALLEL": "Parallel Assignment",
+    "CROSSOVER": "Crossover Assignment",
+    "FACTORIAL": "Factorial Assignment",
+    "SEQUENTIAL": "Sequential Assignment"
+  },
+  "primaryPurpose": {
+    "TREATMENT": "Treatment",
+    "PREVENTION": "Prevention",
+    "DIAGNOSTIC": "Diagnostic",
+    "ECT": "Educational/Counseling/Training",
+    "SUPPORTIVE_CARE": "Supportive Care",
+    "SCREENING": "Screening",
+    "HEALTH_SERVICES_RESEARCH": "Health Services Research",
+    "BASIC_SCIENCE": "Basic Science",
+    "DEVICE_FEASIBILITY": "Device Feasibility",
+    "OTHER": "Other"
+  },
+  "observationalModel": {
+    "COHORT": "Cohort",
+    "CASE_CONTROL": "Case-Control",
+    "CASE_ONLY": "Case-Only",
+    "CASE_CROSSOVER": "Case-Crossover",
+    "ECOLOGIC_OR_COMMUNITY": "Ecologic or Community",
+    "FAMILY_BASED": "Family-Based",
+    "DEFINED_POPULATION": "Defined Population",
+    "NATURAL_HISTORY": "Natural History",
+    "OTHER": "Other"
+  },
+  "timePerspective": {
+    "RETROSPECTIVE": "Retrospective",
+    "PROSPECTIVE": "Prospective",
+    "CROSS_SECTIONAL": "Cross-Sectional",
+    "OTHER": "Other"
+  },
+  "enrollmentType": {
+    "ACTUAL": "Actual",
+    "ESTIMATED": "Estimated"
+  },
+  "masking": {
+    "NONE": "None (Open Label)",
+    "SINGLE": "Single",
+    "DOUBLE": "Double",
+    "TRIPLE": "Triple",
+    "QUADRUPLE": "Quadruple"
+  },
+  "whoMasked": {
+    "PARTICIPANT": "Participant",
+    "CARE_PROVIDER": "Care Provider",
+    "INVESTIGATOR": "Investigator",
+    "OUTCOMES_ASSESSOR": "Outcomes Assessor"
+  }
+}

@@ -3,14 +3,19 @@ import type {
   ConditionsModule,
   ContactsLocationsModule,
   DescriptionModule,
+  DesignModule,
+  DocumentsModule,
   EligibilityModule,
   IdentificationModule,
+  ReferencesModule,
   SponsorCollaboratorsModule,
   StatusModule,
 } from "./studyModules";
 
 export interface ProtocolSection {
   identificationModule: IdentificationModule;
+
+  designModule: DesignModule;
 
   statusModule: StatusModule;
 
@@ -25,4 +30,8 @@ export interface ProtocolSection {
   armsInterventionsModule?: ArmsInterventionsModule;
 
   contactsLocationsModule?: ContactsLocationsModule;
+
+  referencesModule?: ReferencesModule;
+
+  documentsModule?: DocumentsModule;
 }

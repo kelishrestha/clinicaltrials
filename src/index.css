@@ -15,6 +15,9 @@
   --accent: oklch(0.96 0.002 17.2);
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
+  --warning: oklch(91.536% 0.15998 102.924);
+  --warning-bg: oklch(96.514% 0.07192 101.699);
+  --warning-border: oklch(91.536% 0.15998 102.924);
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
@@ -49,13 +52,17 @@
 
   --popover-foreground: oklch(0.147 0.004 49.3);
 
-  --primary: oklch(0.214 0.009 43.1);
+  --primary: oklch(69.033% 0.1069 193.433);
 
   --primary-foreground: oklch(0.986 0.002 67.8);
 
   --secondary: oklch(0.96 0.002 17.2);
 
   --secondary-foreground: oklch(0.214 0.009 43.1);
+
+  --warning: oklch(91.536% 0.15998 102.924);
+
+  --warning-foreground: oklch(26.139% 0.00148 16.148);
 
   --muted: oklch(0.96 0.002 17.2);
 
@@ -107,6 +114,9 @@
     --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
+    --warning: oklch(91.536% 0.15998 102.924);
+    --warning-bg: oklch(96.514% 0.07192 101.699);
+    --warning-border: oklch(91.536% 0.15998 102.924);
     --social-bg: rgba(47, 48, 58, 0.5);
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
@@ -187,6 +197,8 @@ code {
   --primary-foreground: oklch(0.214 0.009 43.1);
   --secondary: oklch(0.268 0.011 36.5);
   --secondary-foreground: oklch(0.986 0.002 67.8);
+  --warning: oklch(91.536% 0.15998 102.924);
+  --warning-foreground: oklch(89% 0.00867 44.403);
   --muted: oklch(0.268 0.011 36.5);
   --muted-foreground: oklch(0.714 0.014 41.2);
   --accent: oklch(0.268 0.011 36.5);
@@ -232,6 +244,8 @@ code {
   --color-destructive: var(--destructive);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning: var(--warning);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
   --color-secondary-foreground: var(--secondary-foreground);
