@@ -4,53 +4,45 @@ import {
   Card,
   CardContent,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
 
-
 import { type Study } from "@/types/study";
-import { Badge } from "@/components/ui/badge";
+import { StudyStatusBadge } from "./StudyStatusBadge";
 
 interface Props {
   study: Study;
 }
 
-export default function StudyCard({
+export function StudyCard({
   study,
 }: Props) {
-  const id =
-    study.protocolSection.identificationModule.nctId;
+  const protocol = study.protocolSection;
 
   return (
-    <Link to={`/studies/${id}`}>
-      <Card className="transition hover:shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-lg">
-            {
-              study.protocolSection
-                .identificationModule.briefTitle
-            }
-          </CardTitle>
+    <Link
+      to={`/studies/${protocol.identificationModule.nctId}`}
+    >
+      <Card className="h-full transition-all hover:-translate-y-1 hover:shadow-lg">
+        <CardHeader className="space-y-3">
+          <p className="text-xs text-muted-foreground">
+            {protocol.identificationModule.nctId}
+          </p>
+
+          <h3 className="font-semibold leading-6">
+            {protocol.identificationModule.briefTitle}
+          </h3>
         </CardHeader>
 
         <CardContent className="space-y-3">
-          <Badge>
-            {
-              study.protocolSection.statusModule
-                .overallStatus
-            }
-          </Badge>
+          <StudyStatusBadge
+            status={protocol.statusModule.overallStatus}
+          />
 
           <p className="text-sm text-muted-foreground">
-            {
-              study.protocolSection.conditionsModule
-                ?.conditions?.join(", ")
-            }
+            {protocol.conditionsModule?.conditions?.join(", ")}
           </p>
 
-          <p className="text-xs text-muted-foreground">
-            {id}
-          </p>
+
         </CardContent>
       </Card>
     </Link>

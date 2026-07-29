@@ -1,27 +1,22 @@
+import { studyKeys } from "@/lib/api/queryKeys";
+import { studiesRepository } from "@/lib/api/studies.repository";
+import type { StudySearchParams } from "@/lib/api/types";
 import { useQuery } from "@tanstack/react-query";
-import { getStudies } from "../api/searchStudies.api";
-import { queryKeys } from "../api/queryKeys";
 
-interface UseStudiesProps {
-  query?: string;
-  pageToken?: string;
-}
 
-export function useStudies({
-  query,
-  pageToken,
-}: UseStudiesProps) {
+export function useStudies(
+  params: StudySearchParams
+) {
   return useQuery({
-    queryKey: queryKeys.studies({ query, pageToken }),
+    queryKey: studyKeys.list(params),
 
     queryFn: () =>
-      getStudies({
-        query,
-        pageToken,
-        pageSize: 20,
-      }),
+      studiesRepository.search(params),
 
     staleTime: 1000 * 60 * 5,
-    // keepPreviousData: true,
+
+    gcTime: 1000 * 60 * 30,
+
+    placeholderData: (previous) => previous,
   });
 }

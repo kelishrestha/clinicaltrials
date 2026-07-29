@@ -11,25 +11,25 @@ export default function StudyDetails() {
 
   if (error) return <h2>Unable to load study.</h2>;
 
-  const study = data.protocolSection;
+  const study = data?.protocolSection;
 
   return (
     <div style={{ padding: 24 }}>
-      <h1>{study.identificationModule.briefTitle}</h1>
+      <h1>{study?.identificationModule.briefTitle}</h1>
 
       <p>
         <strong>NCT ID:</strong>{" "}
-        {study.identificationModule.nctId}
+        {study?.identificationModule.nctId}
       </p>
 
       <p>
         <strong>Status:</strong>{" "}
-        {study.statusModule.overallStatus}
+        {study?.statusModule.overallStatus}
       </p>
 
       <p>
         <strong>Conditions:</strong>{" "}
-        {study.conditionsModule?.conditions?.join(", ")}
+        {study?.conditionsModule?.conditions?.join(", ")}
       </p>
 
       <p>
@@ -37,7 +37,7 @@ export default function StudyDetails() {
       </p>
 
       <p>
-        {study.descriptionModule?.briefSummary}
+        {study?.descriptionModule?.briefSummary}
       </p>
     </div>
   );

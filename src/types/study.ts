@@ -1,27 +1,31 @@
-export interface SearchStudiesParams {
-  query?: string;
-  pageSize?: number;
-  pageToken?: string;
-}
+import { type ProtocolSection } from "./studySections";
 
 export interface Study {
-  protocolSection: {
-    identificationModule: {
-      nctId: string;
-      briefTitle: string;
-    };
-
-    statusModule: {
-      overallStatus: string;
-    };
-
-    conditionsModule?: {
-      conditions: string[];
-    };
-  };
+  protocolSection: ProtocolSection;
 }
 
-export interface StudiesResponse {
-  studies: Study[];
-  nextPageToken?: string;
+export interface Organization {
+  fullName: string;
+  class?: string;
+}
+
+export interface Contact {
+  name?: string;
+  role?: string;
+  phone?: string;
+  phoneExt?: string;
+  email?: string;
+}
+
+export interface Location {
+  facility: string;
+
+  city?: string;
+  state?: string;
+  zip?: string;
+  country?: string;
+
+  status?: string;
+
+  contacts?: Contact[];
 }

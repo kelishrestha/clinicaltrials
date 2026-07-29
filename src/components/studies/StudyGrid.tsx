@@ -1,15 +1,15 @@
 import { type Study } from "@/types/study";
-import StudyCard from "./StudyCard";
+import { StudyCard } from "./StudyCard";
 
 interface Props {
   studies: Study[];
 }
 
-export default function StudyGrid({
+export function StudyGrid({
   studies,
 }: Props) {
   return (
-    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 text-left">
       {studies.map((study) => (
         <StudyCard
           key={

@@ -1,19 +1,32 @@
-import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 
-interface Props {
+import { Input } from "@/components/ui/input";
+import { useDebouncedCallback } from "use-debounce";
+
+interface StudySearchProps {
   value: string;
   onChange(value: string): void;
 }
 
-export default function StudySearch({
+export function StudySearch({
   value,
   onChange,
-}: Props) {
+}: StudySearchProps) {
+
+  const update = useDebouncedCallback(
+    onChange,
+    500
+  );
   return (
-    <Input
-      value={value}
-      placeholder="Search studies..."
-      onChange={(e) => onChange(e.target.value)}
-    />
+    <div className="relative max-w-xl">
+      <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+
+      <Input
+        className="pl-9"
+        placeholder="Search by condition, disease, intervention..."
+        value={value}
+        onChange={(e) => update(e.target.value)}
+      />
+    </div>
   );
 }

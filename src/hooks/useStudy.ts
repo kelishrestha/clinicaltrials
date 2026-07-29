@@ -1,12 +1,17 @@
+import { studyKeys } from "@/lib/api/queryKeys";
+import { studiesRepository } from "@/lib/api/studies.repository";
 import { useQuery } from "@tanstack/react-query";
-import { getStudy } from "../api/studies.api";
-import { queryKeys } from "../api/queryKeys";
 
-export const useStudy = (id: string) =>
-  useQuery({
-    queryKey: queryKeys.study(id),
-    queryFn: () => getStudy(id),
-    enabled: !!id,
 
-    staleTime: 1000 * 60 * 5,
+export function useStudy(id: string) {
+  return useQuery({
+    queryKey: studyKeys.detail(id),
+
+    queryFn: () =>
+      studiesRepository.getById(id),
+
+    enabled: Boolean(id),
+
+    staleTime: 1000 * 60 * 10,
   });
+}
