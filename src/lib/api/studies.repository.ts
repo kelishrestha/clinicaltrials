@@ -5,7 +5,7 @@ import { type ApiListResponse } from "./types";
 
 export class StudiesRepository {
   async search(params: URLSearchParams): Promise<ApiListResponse<Study>>  {
-    const {data} = await apiClient.get<ApiListResponse<Study>>(`/studies?${params.toString()}`);
+    const { data } = await apiClient.get<ApiListResponse<Study>>(`/studies?${params.toString()}`);
     return data;
   }
 

@@ -1,4 +1,5 @@
 import type { StudyStatus } from "@/types/study.types";
+import type { StudyFieldValues } from "@/types/studyStats";
 
 export interface ApiListResponse<T> {
   studies: T[];
@@ -40,3 +41,13 @@ export interface StudySearchParams {
 
   totalCount?: number;
 }
+
+
+export type StatTypes = "ENUM" | "STRING" | "DATE" | "INTEGER" | "NUMBER" | "BOOLEAN";
+export interface StudyFieldSearchParams {
+  fields?: string[];
+
+  types?: StatTypes[];
+}
+
+export type StudyFieldValuesResponse = StudyFieldValues[];

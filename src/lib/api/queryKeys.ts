@@ -1,4 +1,4 @@
-import type { StudySearchParams } from "./types";
+import type { StudyFieldSearchParams, StudySearchParams } from "./types";
 
 export const studyKeys = {
   all: ["studies"] as const,
@@ -11,4 +11,9 @@ export const studyKeys = {
   details: () => [...studyKeys.all, "detail"] as const,
 
   detail: (id: string) => [...studyKeys.details(), id] as const,
+
+  stats: (search: StudyFieldSearchParams) => ["study-stats", search] as const,
+
+  metadata: () =>
+    [...studyKeys.all, "metadata"] as const,
 };

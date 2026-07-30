@@ -19,7 +19,7 @@ export function StudyPagination({
   onNext,
 }: Props) {
   return (
-    <div className="flex items-center justify-end gap-3 border-t pt-6">
+    <div className="flex items-center justify-end gap-3 border-t border-secondary pt-6">
       <Button
         variant="outline"
         disabled={!hasPrevious || loading}

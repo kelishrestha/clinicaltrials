@@ -14,12 +14,12 @@ export function StudyFilters() {
     <aside className="hidden lg:block w-72 shrink-0">
       <div className="sticky top-8">
         <Card className="p-5 space-y-6">
-          <div>
+          <div className="border-b border-secondary pb-3">
             <h2 className="font-semibold text-accent!">
               Filters
             </h2>
 
-            <p className="text-xs italic text-muted-foreground">
+            <p className="text-xs text-muted-foreground">
               Narrow your search results
             </p>
           </div>

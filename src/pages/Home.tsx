@@ -11,6 +11,8 @@ import { StudyListPageSkeleton } from "@/components/studies/skeletons/StudyListS
 import { useStudies } from "@/hooks/useStudies";
 import { useStudySearchStore } from "@/stores/studySearch.store";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const {
@@ -49,9 +51,17 @@ export default function Home() {
             Clinical Trials
           </h1>
 
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-muted-foreground pb-3">
             Search studies from ClinicalTrials.gov
           </p>
+          <div className="flex gap-2">
+            <Link to="/metadata">
+              <Button variant="outline" size="xs">View Schema</Button>
+            </Link>
+            <Link to="/stats">
+              <Button variant="outline" size="xs">Check Stats</Button>
+            </Link>
+          </div>
         </header>
 
         <StudySearch />

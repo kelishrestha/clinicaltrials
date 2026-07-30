@@ -1,5 +1,4 @@
-import type { StudySearchParams } from "./api/types";
-
+import type { StudyFieldSearchParams, StudySearchParams } from "./api/types";
 
 export function buildStudyQuery(
   search: StudySearchParams,
@@ -29,6 +28,29 @@ export function buildStudyQuery(
   params.set( "pageSize", String(search.pageSize));
 
   params.set("countTotal", "true");
+
+  return params;
+}
+
+
+export function buildStudyStatsQuery(
+  search: StudyFieldSearchParams,
+) {
+  const params = new URLSearchParams();
+
+  if (search.types && search.types.length) {
+    params.set(
+      "types",
+      search.types.join("|"),
+    );
+  }
+
+  if (search.fields && search.fields.length) {
+    params.set(
+      "fields",
+      search.fields.join("|"),
+    );
+  }
 
   return params;
 }
