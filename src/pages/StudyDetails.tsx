@@ -23,6 +23,7 @@ import { IdentificationCard } from "@/components/studies/detail/IdentificationCa
 import { OfficialContactsCard } from "@/components/studies/detail/OfficialContactsCard";
 import { StudyHeaderSkeleton } from "@/components/studies/skeletons/StudyHeaderSkeleton";
 import { DetailCardSkeleton } from "@/components/common/skeletons/DetailCardSkeleton";
+import { ApiResponseCard } from "@/components/studies/detail/ApiResponseCard";
 
 export default function StudyDetailsPage() {
   const { nctId = "" } = useParams();
@@ -89,6 +90,8 @@ export default function StudyDetailsPage() {
             <ReferencesCard references={protocol.referencesModule} />
 
             <DocumentsCard documents={protocol.documentsModule} />
+
+            <ApiResponseCard data={data} />
           </main>
         </div>
       </div>
