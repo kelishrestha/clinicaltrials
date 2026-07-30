@@ -2,6 +2,7 @@ import type { StudyStatus } from "@/types/study.types";
 
 export interface ApiListResponse<T> {
   studies: T[];
+  totalCount?: number;
   nextPageToken?: string;
 }
 
@@ -34,4 +35,8 @@ export interface StudySearchParams {
   fields?: string[];
 
   page?: number;
+
+  previousPageTokens: string[];
+
+  totalCount?: number;
 }

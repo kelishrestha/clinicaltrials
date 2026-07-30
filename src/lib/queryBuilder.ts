@@ -14,17 +14,21 @@ export function buildStudyQuery(
     params.set("query.locn", search.location);
   }
 
-  if (search.status?.length > 0) {
+  if (search.status && search.status?.length > 0) {
     params.set(
       "filter.overallStatus",
       Array(search.status).join("|"),
     );
   }
 
-  params.set(
-    "pageSize",
-    String(search.pageSize),
-  );
+
+  if (search.pageToken) {
+    params.set("pageToken", search.pageToken);
+  }
+
+  params.set( "pageSize", String(search.pageSize));
+
+  params.set("countTotal", "true");
 
   return params;
 }

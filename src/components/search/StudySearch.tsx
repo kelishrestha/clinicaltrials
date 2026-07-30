@@ -2,25 +2,29 @@ import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { Input } from "@/components/ui/input";
+import { useStudySearchStore } from "@/stores/studySearch.store";
 
-interface StudySearchProps {
-  value: string;
-  onChange(value: string): void;
-}
+export function StudySearch() {
+  const term = useStudySearchStore(
+    (state) => state.search.term,
+  );
 
-export function StudySearch({
-  value,
-  onChange,
-}: StudySearchProps) {
-  const [term, setTerm] = useState(value);
+  const setTerm = useStudySearchStore(
+    (state) => state.setTerm,
+  );
+
+  const [value, setValue] = useState(term);
 
   useEffect(() => {
-    setTerm(value);
-  }, [value]);
+    setValue(term);
+  }, [term]);
 
   function handleSearch() {
-    if (term.trim() !== value) {
-      onChange(term.trim());
+    if(value == undefined) return;
+    const next = value.trim();
+
+    if (next !== term) {
+      setTerm(next);
     }
   }
 
@@ -31,8 +35,10 @@ export function StudySearch({
       <Input
         className="pl-9"
         placeholder="Search by condition, disease, intervention..."
-        value={term}
-        onChange={(e) => setTerm(e.target.value)}
+        value={value}
+        onChange={(e) =>
+          setValue(e.target.value)
+        }
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             e.preventDefault();

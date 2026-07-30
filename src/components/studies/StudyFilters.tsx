@@ -1,15 +1,15 @@
 import { Card } from "@/components/ui/card";
 import { StatusFilter } from "./filters/StatusFilter";
 import { LocationFilter } from "./filters/LocationFilter";
-import type { StudySearchParams } from "@/lib/api/types";
+import { useStudySearchStore } from "@/stores/studySearch.store";
 
+export function StudyFilters() {
+  const {
+  search,
+  setStatus,
+  setLocation,
+} = useStudySearchStore();
 
-interface Props {
-  search: StudySearchParams;
-  onChange: (updates: Partial<StudySearchParams>) => void;
-}
-
-export function StudyFilters({ search, onChange }: Props) {
   return (
     <aside className="hidden lg:block w-72 shrink-0">
       <div className="sticky top-8">
@@ -26,22 +26,12 @@ export function StudyFilters({ search, onChange }: Props) {
 
           <StatusFilter
             value={search.status ?? []}
-            onChange={(status) =>
-              onChange({
-                status: status.length ? status : undefined,
-                page: 1,
-              })
-            }
+            onChange={setStatus}
           />
 
           <LocationFilter
             value={search.location || ''}
-            onChange={(location) =>
-              onChange({
-                location: location,
-                page: 1,
-              })
-            }
+            onChange={setLocation}
 />
         </Card>
       </div>

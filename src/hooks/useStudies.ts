@@ -7,7 +7,6 @@ import { useQuery } from "@tanstack/react-query";
 export function useStudies(search: StudySearchParams) {
   const searchQuery = buildStudyQuery(search);
 
-  console.log(search, searchQuery, 10);
   return useQuery({
     queryKey: studyKeys.list(search),
 

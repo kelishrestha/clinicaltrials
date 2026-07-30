@@ -1,5 +1,3 @@
-// stores/studySearch.store.ts
-
 import { create } from "zustand";
 
 import type { StudySearchParams } from "@/lib/api/types";
@@ -11,30 +9,37 @@ const DEFAULT_SEARCH: StudySearchParams = {
   status: undefined,
   pageToken: undefined,
   pageSize: 20,
+  previousPageTokens: [],
 };
 
 interface StudySearchStore {
   search: StudySearchParams;
 
-  updateSearch: (
+  updateSearch(
     updates: Partial<StudySearchParams>,
-  ) => void;
+  ): void;
 
-  setTerm: (term: string) => void;
+  setTerm(term: string): void;
 
-  setStatus: (
+  setStatus(
     status?: StudyStatus[],
-  ) => void;
+  ): void;
 
-  setLocation: (
+  setLocation(
     location: string,
-  ) => void;
+  ): void;
 
-  setPageToken: (
-    pageToken?: string,
-  ) => void;
+  nextPage(
+    nextPageToken?: string,
+  ): void;
 
-  reset: () => void;
+  previousPage(): void;
+
+  resetPagination(): void;
+
+  setTotalCount(total?: number): void;
+
+  reset(): void;
 }
 
 export const useStudySearchStore =
@@ -55,6 +60,7 @@ export const useStudySearchStore =
           ...state.search,
           term,
           pageToken: undefined,
+          previousPageTokens: [],
         },
       })),
 
@@ -64,6 +70,7 @@ export const useStudySearchStore =
           ...state.search,
           status,
           pageToken: undefined,
+          previousPageTokens: [],
         },
       })),
 
@@ -73,19 +80,61 @@ export const useStudySearchStore =
           ...state.search,
           location,
           pageToken: undefined,
+          previousPageTokens: [],
         },
       })),
 
-    setPageToken: (pageToken) =>
+    nextPage: (nextPageToken) =>
       set((state) => ({
         search: {
           ...state.search,
-          pageToken,
+
+          previousPageTokens: [
+            ...state.search.previousPageTokens,
+            state.search.pageToken ?? "",
+          ],
+
+          pageToken: nextPageToken,
         },
       })),
 
-    reset: () =>
-      set({
-        search: DEFAULT_SEARCH,
+    previousPage: () =>
+      set((state) => {
+        const history = [
+          ...state.search.previousPageTokens,
+        ];
+
+        const previous =
+          history.pop() ?? "";
+
+        return {
+          search: {
+            ...state.search,
+            previousPageTokens: history,
+            pageToken:
+              previous || undefined,
+          },
+        };
       }),
+
+    resetPagination: () =>
+      set((state) => ({
+        search: {
+          ...state.search,
+          pageToken: undefined,
+          previousPageTokens: [],
+        },
+      })),
+
+    setTotalCount: (totalCount) =>
+      set((state) => ({
+        search: {
+          ...state.search,
+          totalCount,
+        },
+      })),
+
+    reset: () => ({
+      search: DEFAULT_SEARCH,
+    }),
   }));
