@@ -24,7 +24,7 @@ export function StudyCard({ study }: Props) {
         <CardContent className="space-y-3">
           <StudyStatusBadge status={protocol.statusModule.overallStatus} />
 
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground truncate">
             {protocol.conditionsModule?.conditions?.join(", ")}
           </p>
         </CardContent>

@@ -15,7 +15,7 @@ export function StudyFilters() {
       <div className="sticky top-8">
         <Card className="p-5 space-y-6">
           <div className="border-b border-secondary pb-3">
-            <h2 className="font-semibold text-accent!">
+            <h2 className="font-semibold! text-accent!">
               Filters
             </h2>
 

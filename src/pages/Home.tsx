@@ -59,7 +59,7 @@ export default function Home() {
               <Button variant="outline" size="xs">View Schema</Button>
             </Link>
             <Link to="/stats">
-              <Button variant="outline" size="xs">Check Stats</Button>
+              <Button variant="outline" size="xs">Check Field Stats</Button>
             </Link>
           </div>
         </header>
