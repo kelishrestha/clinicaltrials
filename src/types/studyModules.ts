@@ -18,7 +18,7 @@ import type {
   StudyPhase,
   StudyStatus,
   StudyType,
-} from "./study.enums";
+} from "./study.types";
 
 export interface IdentificationModule {
   nctId: string;

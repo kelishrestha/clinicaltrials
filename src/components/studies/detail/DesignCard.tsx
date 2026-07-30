@@ -1,4 +1,4 @@
-import { DetailCard } from "./DetailCard";
+import { DetailCard } from "../../common/DetailCard";
 import { InfoRow } from "../../common/InfoRow";
 import type { DesignModule } from "@/types/studyModules";
 import { EmptyState } from "./EmptyState";

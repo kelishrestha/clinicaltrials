@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 
-import { DetailCard } from "./DetailCard";
+import { DetailCard } from "../../common/DetailCard";
 
 import type { ConditionsModule } from "@/types/studyModules";
 import { EmptyState } from "./EmptyState";

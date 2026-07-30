@@ -1,6 +1,6 @@
-import { formatDate } from "@/utils/formatDate";
+import { formatDate } from "@/lib/formatters/formatDate";
 import { StudyStatusBadge } from "../StudyStatusBadge";
-import { DetailCard } from "./DetailCard";
+import { DetailCard } from "../../common/DetailCard";
 import { type StatusModule } from "@/types/studyModules";
 
 interface Props {

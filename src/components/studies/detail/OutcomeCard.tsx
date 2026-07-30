@@ -1,5 +1,5 @@
 import type { OutcomesModule } from "@/types/studyModules";
-import { DetailCard } from "./DetailCard";
+import { DetailCard } from "../../common/DetailCard";
 import { OutcomeList } from "./OutcomeList";
 import { EmptyState } from "./EmptyState";
 

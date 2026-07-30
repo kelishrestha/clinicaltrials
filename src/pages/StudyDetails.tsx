@@ -20,8 +20,9 @@ import { StudyNavigation } from "@/components/studies/detail/StudyNavigation";
 import { useFloatingSidebar } from "@/hooks/useFloatingSidebar";
 import { OutcomeCard } from "@/components/studies/detail/OutcomeCard";
 import { IdentificationCard } from "@/components/studies/detail/IdentificationCard";
-import { PageLoader } from "@/components/common/PageLoader";
 import { OfficialContactsCard } from "@/components/studies/detail/OfficialContactsCard";
+import { StudyHeaderSkeleton } from "@/components/studies/skeletons/StudyHeaderSkeleton";
+import { DetailCardSkeleton } from "@/components/common/skeletons/DetailCardSkeleton";
 
 export default function StudyDetailsPage() {
   const { nctId = "" } = useParams();
@@ -30,7 +31,17 @@ export default function StudyDetailsPage() {
   const { data, isLoading, isError } = useStudy(nctId);
 
   if (isLoading) {
-    return <PageLoader text="Loading study..." />;
+    return (
+      <AppLayout>
+        <StudyHeaderSkeleton />
+
+        <div className="mt-8 space-y-6">
+          <DetailCardSkeleton />
+          <DetailCardSkeleton />
+          <DetailCardSkeleton />
+        </div>
+      </AppLayout>
+    );
   }
 
   if (isError || !data) {

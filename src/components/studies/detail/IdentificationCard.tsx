@@ -1,5 +1,5 @@
 import type { IdentificationModule } from "@/types/studyModules";
-import { DetailCard } from "./DetailCard";
+import { DetailCard } from "../../common/DetailCard";
 import { InfoRow } from "@/components/common/InfoRow";
 
 interface Props {

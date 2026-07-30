@@ -1,5 +1,5 @@
 import type { ArmsInterventionsModule } from "@/types/studyModules";
-import { DetailCard } from "./DetailCard";
+import { DetailCard } from "../../common/DetailCard";
 import { EmptyState } from "./EmptyState";
 
 interface Props {

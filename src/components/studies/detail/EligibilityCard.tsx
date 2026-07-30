@@ -1,5 +1,5 @@
 import type { EligibilityModule } from "@/types/studyModules";
-import { DetailCard } from "./DetailCard";
+import { DetailCard } from "../../common/DetailCard";
 import { InfoRow } from "../../common/InfoRow";
 import { EmptyState } from "./EmptyState";
 

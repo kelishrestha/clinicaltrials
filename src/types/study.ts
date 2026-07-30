@@ -3,7 +3,7 @@ import type {
   StudyDesignEnrollmentType,
   StudyDesignMasking,
   StudyDesignWhoMasked,
-} from "./study.enums";
+} from "./study.types";
 import { type ProtocolSection } from "./studySections";
 export interface Study {
   protocolSection: ProtocolSection;
