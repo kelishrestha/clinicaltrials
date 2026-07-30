@@ -2,12 +2,26 @@ import type { EligibilityModule } from "@/types/studyModules";
 import { DetailCard } from "../../common/DetailCard";
 import { InfoRow } from "../../common/InfoRow";
 import { EmptyState } from "./EmptyState";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { CheckIcon, CopyIcon } from "lucide-react";
 
 interface Props {
   eligibility?: EligibilityModule;
 }
 
 export function EligibilityCard({ eligibility }: Props) {
+  const [copied, setCopied] = useState(false);
+
+  async function copyResponse() {
+    await navigator.clipboard.writeText(eligibility?.eligibilityCriteria || '');
+
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  }
   return (
     <DetailCard id="eligibility" title="Eligibility">
       {!eligibility ? (
@@ -34,6 +48,26 @@ export function EligibilityCard({ eligibility }: Props) {
             <div className="space-y-2">
               <h3 className="font-semibold">Eligibility Criteria</h3>
 
+              <div className="flex flex-row-reverse pb-5">
+                <Button
+                  variant="outline"
+                  size="xs"
+                  className="sticky"
+                  onClick={copyResponse}
+                >
+                  {copied ? (
+                    <>
+                      <CheckIcon className="mr-2 h-4 w-4" />
+                      Copied
+                    </>
+                  ) : (
+                    <>
+                      <CopyIcon className="mr-2 h-4 w-4" />
+                      Copy
+                    </>
+                  )}
+                </Button>
+              </div>
               <div className="rounded-md bg-muted/40 p-4">
                 <pre className="whitespace-pre-wrap font-sans text-sm leading-7">
                   {eligibility.eligibilityCriteria}

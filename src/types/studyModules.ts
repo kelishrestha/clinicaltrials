@@ -1,4 +1,3 @@
-import { type Organization } from "./study";
 import type {
   BioSpec,
   Contact,
