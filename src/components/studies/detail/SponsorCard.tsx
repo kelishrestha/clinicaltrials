@@ -8,7 +8,7 @@ interface Props {
 
 export function SponsorCard({ sponsor }: Props) {
   return (
-    <DetailCard id="sponsor" title="Sponsor">
+    <DetailCard id="sponsor" title="Sponsors & Collaborators">
       {!sponsor ? (
         <EmptyState
           title="No sponsors available"
@@ -19,7 +19,8 @@ export function SponsorCard({ sponsor }: Props) {
           <div>
             <p className="text-sm text-muted-foreground">Lead Sponsor</p>
 
-            <p className="font-medium">{sponsor?.leadSponsor.fullName ?? "Not available"}</p>
+            <p className="font-medium">{sponsor?.leadSponsor.name ?? "Not available"}</p>
+            { sponsor.leadSponsor.class && (<span className="text-xs">{sponsor.leadSponsor.class}</span>)}
           </div>
 
           {sponsor?.collaborators?.length ? (
@@ -28,11 +29,24 @@ export function SponsorCard({ sponsor }: Props) {
 
               <ul className="list-disc pl-5">
                 {sponsor.collaborators.map((item) => (
-                  <li key={item.fullName}>{item.fullName}</li>
+                  <li key={item.name}>{item.name}</li>
                 ))}
               </ul>
             </div>
           ) : null}
+
+          {sponsor?.responsibleParty && (
+            <div>
+              <p className="text-sm text-muted-foreground">Responsible Party</p>
+
+              <p className="font-medium">{sponsor?.responsibleParty.investigatorFullName ?? ""}</p>
+              <p className="text-xs flex flex-col">
+                { sponsor.responsibleParty.type && (<span>{sponsor.responsibleParty.type}</span>)}
+                { sponsor.responsibleParty.investigatorTitle && (<span>{sponsor.responsibleParty.investigatorTitle}</span>)}
+                { sponsor.responsibleParty.investigatorAffiliation && (<span>{sponsor.responsibleParty.investigatorAffiliation}</span>)}
+              </p>
+            </div>
+          )}
         </div>
       )}
     </DetailCard>

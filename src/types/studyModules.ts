@@ -8,6 +8,7 @@ import type {
   MaskingInfo,
   Outcome,
   Reference,
+  Sponsor,
 } from "./study";
 import type {
   StudyDesignAllocation,
@@ -95,12 +96,15 @@ export interface EligibilityModule {
 }
 
 export interface SponsorCollaboratorsModule {
-  leadSponsor: Organization;
+  leadSponsor: Sponsor;
 
-  collaborators?: Organization[];
+  collaborators?: Sponsor[];
 
   responsibleParty?: {
     type: string;
+    investigatorFullName: string;
+    investigatorTitle: string;
+    investigatorAffiliation: string;
   };
 }
 

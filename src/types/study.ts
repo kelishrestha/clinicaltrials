@@ -14,6 +14,11 @@ export interface Organization {
   class?: string;
 }
 
+export interface Sponsor {
+  name: string;
+  class?: string;
+}
+
 export interface Contact {
   name?: string;
   role?: string;
