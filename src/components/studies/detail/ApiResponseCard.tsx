@@ -35,11 +35,11 @@ export function ApiResponseCard({
       id="api-response"
       title="API Response"
     >
-      <div className="relative">
+      <div className="flex flex-row-reverse pb-5">
         <Button
           variant="outline"
           size="sm"
-          className="absolute right-3 top-3 z-10"
+          className="sticky"
           onClick={copyResponse}
         >
           {copied ? (
@@ -54,8 +54,9 @@ export function ApiResponseCard({
             </>
           )}
         </Button>
-
-        <pre className="max-h-150 overflow-auto rounded-lg border bg-muted p-4 pt-14 text-xs leading-relaxed">
+      </div>
+      <div className="relative">
+        <pre className="max-h-150 overflow-auto rounded-lg border bg-muted text-xs leading-relaxed">
           <code>
             {json}
           </code>
