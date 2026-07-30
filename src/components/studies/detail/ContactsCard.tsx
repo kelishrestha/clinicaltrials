@@ -8,7 +8,7 @@ interface Props {
 
 export function ContactsCard({ contacts }: Props) {
   return (
-    <DetailCard id="contacts" title="Central Contacts">
+    <DetailCard id="central-contacts" title="Central Contacts">
       {!contacts?.centralContacts?.length ? (
         <EmptyState
           title="No central contacts available"
@@ -16,6 +16,10 @@ export function ContactsCard({ contacts }: Props) {
         />
       ) : (
         <div className="space-y-4">
+          <p className="py-3 text-muted-foreground">
+            Number of central contacts:
+            <span className="text-black pl-1">{contacts.numCentralContacts || 'N/A'}</span>
+          </p>
           {contacts.centralContacts.map((contact, index) => (
             <div
               key={`${contact.name}-${index}`}

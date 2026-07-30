@@ -33,6 +33,9 @@ export interface Location {
   status?: string;
 
   contacts?: Contact[];
+  numLocationContacts?: number;
+  countryCode?: number;
+  geoPoint?: any;
 }
 
 export interface Reference {

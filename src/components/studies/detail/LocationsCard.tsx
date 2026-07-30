@@ -16,6 +16,10 @@ export function LocationsCard({ locations }: Props) {
         />
       ) : (
         <div className="space-y-4">
+          <p className="py-3 text-muted-foreground">
+            Number of locations:
+            <span className="text-black pl-1">{locations.numLocations || 'N/A'}</span>
+          </p>
           {locations.locations.map((location, index) => (
             <div
               key={`${location.facility}-${index}`}

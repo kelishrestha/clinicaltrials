@@ -130,8 +130,18 @@ export interface ArmsInterventionsModule {
 
 export interface ContactsLocationsModule {
   centralContacts?: Contact[];
+  numCentralContacts?: number;
 
+  overallOfficials?: {
+    name?: string;
+    affiliation?: string;
+    role?: string;
+  }[];
+
+  numOverallOfficials?: number;
   locations?: Location[];
+  numLocations?: number;
+  numUniqueLocationCountries?: number;
 }
 
 export interface ReferencesModule {

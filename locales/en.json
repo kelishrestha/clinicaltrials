@@ -69,5 +69,11 @@
     "CARE_PROVIDER": "Care Provider",
     "INVESTIGATOR": "Investigator",
     "OUTCOMES_ASSESSOR": "Outcomes Assessor"
+  },
+  "officialRole": {
+    "STUDY_CHAIR": "Study Chair",
+    "STUDY_DIRECTOR": "Study Director",
+    "PRINCIPAL_INVESTIGATOR": "Principal Investigator",
+    "SUB_INVESTIGATOR": "Sub-Investigator"
   }
 }

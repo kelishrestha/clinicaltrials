@@ -64,3 +64,9 @@ export type StudyDesignBioSpecRetention =
   | "NONE_RETAINED"
   | "SAMPLES_WITH_DNA"
   | "SAMPLES_WITHOUT_DNA";
+
+export type StudyContactOfficialRole =
+  | "STUDY_CHAIR"
+  | "STUDY_DIRECTOR"
+  | "PRINCIPAL_INVESTIGATOR"
+  | "SUB_INVESTIGATOR"

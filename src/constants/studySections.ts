@@ -41,8 +41,12 @@ export const studyNavigation: StudyNavigationItem[] = [
     label: "Outcome Measures",
   },
   {
-    id: "contacts",
-    label: "Contacts",
+    id: "central-contacts",
+    label: "Central Contacts",
+  },
+  {
+    id: "official-contacts",
+    label: "Official Contacts",
   },
   {
     id: "locations",

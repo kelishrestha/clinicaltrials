@@ -21,6 +21,7 @@ import { useFloatingSidebar } from "@/hooks/useFloatingSidebar";
 import { OutcomeCard } from "@/components/studies/detail/OutcomeCard";
 import { IdentificationCard } from "@/components/studies/detail/IdentificationCard";
 import { PageLoader } from "@/components/common/PageLoader";
+import { OfficialContactsCard } from "@/components/studies/detail/OfficialContactsCard";
 
 export default function StudyDetailsPage() {
   const { nctId = "" } = useParams();
@@ -69,6 +70,8 @@ export default function StudyDetailsPage() {
             <OutcomeCard outcomes={protocol.outcomesModule} />
 
             <ContactsCard contacts={protocol.contactsLocationsModule} />
+
+            <OfficialContactsCard contacts={protocol.contactsLocationsModule} />
 
             <LocationsCard locations={protocol.contactsLocationsModule} />
 
