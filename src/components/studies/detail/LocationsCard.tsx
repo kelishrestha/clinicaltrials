@@ -32,6 +32,32 @@ export function LocationsCard({ locations }: Props) {
               </p>
 
               {location.status && <p className="mt-2 text-sm">Status: {location.status}</p>}
+              {location.contacts?.length && (<h3 className="font-semibold mt-8 uppercase text-muted-foreground font-heading">Location Contacts</h3>)}
+              {location.contacts?.map((contact) => (
+                <div
+                  key={`${contact.name}-${index}`}
+                  className="p-4"
+                >
+                  <h3 className="font-semibold">{contact.name ?? "Unknown"}</h3>
+
+                  {contact.role && <p className="text-sm text-muted-foreground">{contact.role}</p>}
+
+                  <div className="mt-3 space-y-1 text-sm">
+                    {contact.phone && (
+                      <p>
+                        <strong>Phone:</strong> {contact.phone}
+                        {contact.phoneExt ? ` ext. ${contact.phoneExt}` : ""}
+                      </p>
+                    )}
+
+                    {contact.email && (
+                      <p>
+                        <strong>Email:</strong> {contact.email}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           ))}
         </div>
