@@ -64,4 +64,8 @@ export const studyNavigation: StudyNavigationItem[] = [
     id: "results",
     label: "Results",
   },
+  {
+    id: "raw-response",
+    label: "API Response"
+  }
 ];

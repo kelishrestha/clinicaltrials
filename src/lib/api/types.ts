@@ -1,3 +1,5 @@
+import type { StudyStatus } from "@/types/study.types";
+
 export interface ApiListResponse<T> {
   studies: T[];
   nextPageToken?: string;
@@ -9,17 +11,27 @@ export interface PaginationParams {
 }
 
 export interface StudySearchParams {
-  query?: string;
-
   pageSize?: number;
 
   pageToken?: string;
 
-  overallStatus?: string;
+  term?: string;
 
   studyType?: string;
 
   phase?: string;
 
   country?: string;
+
+  status?: StudyStatus[];
+
+  location?: string;
+
+  overallStatus?: StudyStatus[];
+
+  condition?: string;
+
+  fields?: string[];
+
+  page?: number;
 }

@@ -1,13 +1,17 @@
 import { studyKeys } from "@/lib/api/queryKeys";
 import { studiesRepository } from "@/lib/api/studies.repository";
 import type { StudySearchParams } from "@/lib/api/types";
+import { buildStudyQuery } from "@/lib/queryBuilder";
 import { useQuery } from "@tanstack/react-query";
 
-export function useStudies(params: StudySearchParams) {
-  return useQuery({
-    queryKey: studyKeys.list(params),
+export function useStudies(search: StudySearchParams) {
+  const searchQuery = buildStudyQuery(search);
 
-    queryFn: () => studiesRepository.search(params),
+  console.log(search, searchQuery, 10);
+  return useQuery({
+    queryKey: studyKeys.list(search),
+
+    queryFn: () => studiesRepository.search(searchQuery),
 
     staleTime: 1000 * 60 * 5,
 

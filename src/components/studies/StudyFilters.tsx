@@ -15,20 +15,20 @@ export function StudyFilters({ search, onChange }: Props) {
       <div className="sticky top-8">
         <Card className="p-5 space-y-6">
           <div>
-            <h2 className="font-semibold">
+            <h2 className="font-semibold text-accent!">
               Filters
             </h2>
 
-            <p className="text-sm text-muted-foreground">
-              Narrow your search results.
+            <p className="text-xs italic text-muted-foreground">
+              Narrow your search results
             </p>
           </div>
 
           <StatusFilter
-            value={search.status || 'all'}
+            value={search.status ?? []}
             onChange={(status) =>
               onChange({
-                status: status,
+                status: status.length ? status : undefined,
                 page: 1,
               })
             }
