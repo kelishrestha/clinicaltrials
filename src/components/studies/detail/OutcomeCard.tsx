@@ -1,7 +1,7 @@
 import type { OutcomesModule } from "@/types/studyModules";
 import { DetailCard } from "../../common/DetailCard";
 import { OutcomeList } from "./OutcomeList";
-import { EmptyState } from "./EmptyState";
+import { EmptyState } from "../../common/EmptyState";
 
 interface Props {
   outcomes?: OutcomesModule;
@@ -13,7 +13,7 @@ export function OutcomeCard({ outcomes }: Props) {
       {!outcomes ? (
         <EmptyState title="No arms available" description="This study does not include any arms." />
       ) : (
-        <div className="space-y-10">
+        <div className="space-y-8">
           <OutcomeList title="Primary Outcomes" outcomes={outcomes.primaryOutcomes} />
 
           <OutcomeList title="Secondary Outcomes" outcomes={outcomes.secondaryOutcomes} />

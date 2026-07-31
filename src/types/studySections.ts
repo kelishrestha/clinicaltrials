@@ -1,5 +1,6 @@
 import type {
   ArmsInterventionsModule,
+  BrowseLeafModule,
   ConditionsModule,
   ContactsLocationsModule,
   DescriptionModule,
@@ -7,7 +8,10 @@ import type {
   DocumentsModule,
   EligibilityModule,
   IdentificationModule,
+  IPDSharingStatementModule,
+  MiscInfoModule,
   OutcomesModule,
+  OversightModule,
   ReferencesModule,
   SponsorCollaboratorsModule,
   StatusModule,
@@ -34,7 +38,23 @@ export interface ProtocolSection {
 
   referencesModule?: ReferencesModule;
 
-  documentsModule?: DocumentsModule;
-
   outcomesModule?: OutcomesModule;
+
+  oversightModule?: OversightModule;
+
+  ipdSharingStatementModule?: IPDSharingStatementModule;
+
+  hasResults?: boolean;
+}
+
+export interface DerivedSection {
+  miscInfoModule?: MiscInfoModule;
+
+  conditionBrowseModule?: BrowseLeafModule;
+
+  interventionBrowseModule?: BrowseLeafModule;
+}
+
+export interface DocumentSection {
+  largeDocumentModule?: DocumentsModule;
 }

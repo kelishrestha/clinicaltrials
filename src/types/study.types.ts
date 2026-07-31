@@ -70,3 +70,29 @@ export type StudyContactOfficialRole =
   | "STUDY_DIRECTOR"
   | "PRINCIPAL_INVESTIGATOR"
   | "SUB_INVESTIGATOR"
+
+export type StudyExpandedAccessStatus =
+  | "AVAILABLE"
+  | "NO_LONGER_AVAILABLE"
+  | "TEMPORARILY_NOT_AVAILABLE"
+  | "APPROVED_FOR_MARKETING"
+
+export type StudySamplingMethod =
+  | "PROBABILITY_SAMPLE"
+  | "NON_PROBABILITY_SAMPLE"
+
+export type ReferenceType =
+  | "BACKGROUND"
+  | "RESULT"
+  | "DERIVED"
+
+export type IPDSharingInfoType =
+  | "STUDY_PROTOCOL"
+  | "SAP"
+  | "ICF"
+  | "CSR"
+  | "ANALYTIC_CODE"
+
+export type ConditionBrowseLeafRelevance =
+  | "LOW"
+  | "HIGH"

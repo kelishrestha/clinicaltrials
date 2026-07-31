@@ -1,6 +1,7 @@
 import type { SponsorCollaboratorsModule } from "@/types/studyModules";
 import { DetailCard } from "../../common/DetailCard";
-import { EmptyState } from "./EmptyState";
+import { EmptyState } from "../../common/EmptyState";
+import { FlexRow } from "@/components/common/FlexRow";
 
 interface Props {
   sponsor?: SponsorCollaboratorsModule;
@@ -17,35 +18,40 @@ export function SponsorCard({ sponsor }: Props) {
       ) : (
         <div className="space-y-4">
           <div>
-            <p className="text-sm text-muted-foreground">Lead Sponsor</p>
+            <FlexRow label="Lead Sponsor" value={
+              <>
+                <p className="font-medium">{sponsor?.leadSponsor.name ?? "Not available"}</p>
+                { sponsor.leadSponsor.class && (<span className="text-xs">{sponsor.leadSponsor.class}</span>)}
+              </>
+            } />
 
-            <p className="font-medium">{sponsor?.leadSponsor.name ?? "Not available"}</p>
-            { sponsor.leadSponsor.class && (<span className="text-xs">{sponsor.leadSponsor.class}</span>)}
           </div>
 
           {sponsor?.collaborators?.length ? (
-            <div>
-              <p className="text-sm text-muted-foreground mb-2">Collaborators</p>
-
-              <ul className="list-disc pl-5">
-                {sponsor.collaborators.map((item) => (
-                  <li key={item.name}>{item.name}</li>
-                ))}
-              </ul>
-            </div>
+              <FlexRow label="Collaborators" value={
+                <ul className="list-disc pl-5">
+                  {sponsor.collaborators.map((item) => (
+                    <li key={item.name}>{item.name}</li>
+                  ))}
+                </ul>
+              }
+              />
           ) : null}
 
           {sponsor?.responsibleParty && (
-            <div>
-              <p className="text-sm text-muted-foreground">Responsible Party</p>
-
-              <p className="font-medium">{sponsor?.responsibleParty.investigatorFullName ?? ""}</p>
-              <p className="text-xs flex flex-col">
-                { sponsor.responsibleParty.type && (<span>{sponsor.responsibleParty.type}</span>)}
-                { sponsor.responsibleParty.investigatorTitle && (<span>{sponsor.responsibleParty.investigatorTitle}</span>)}
-                { sponsor.responsibleParty.investigatorAffiliation && (<span>{sponsor.responsibleParty.investigatorAffiliation}</span>)}
-              </p>
-            </div>
+            <FlexRow label="Responsible Party" value={
+              <>
+                <p className="font-medium">{sponsor?.responsibleParty.investigatorFullName ?? ""}</p>
+                <p className="text-xs flex flex-col">
+                  { sponsor.responsibleParty.type && (<span>{sponsor.responsibleParty.type}</span>)}
+                  { sponsor.responsibleParty.investigatorTitle && (<span>{sponsor.responsibleParty.investigatorTitle}</span>)}
+                  { sponsor.responsibleParty.investigatorAffiliation && (<span>{sponsor.responsibleParty.investigatorAffiliation}</span>)}
+                  { sponsor.responsibleParty.oldNameTitle && (<span>Old name: {sponsor.responsibleParty.oldNameTitle}</span>)}
+                  { sponsor.responsibleParty.oldOrganization && (<span>Old Organization: {sponsor.responsibleParty.oldOrganization}</span>)}
+                </p>
+              </>
+            }
+            />
           )}
         </div>
       )}

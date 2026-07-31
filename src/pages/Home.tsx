@@ -1,7 +1,7 @@
 import AppLayout from "@/layouts/AppLayout";
 
 import { StudySearch } from "@/components/search/StudySearch";
-import { ErrorState } from "@/components/studies/detail/ErrorState";
+import { ErrorState } from "@/components/common/ErrorState";
 import { StudyFilters } from "@/components/studies/StudyFilters";
 import { StudyGrid } from "@/components/studies/StudyGrid";
 import { StudyPagination } from "@/components/studies/StudyPagination";

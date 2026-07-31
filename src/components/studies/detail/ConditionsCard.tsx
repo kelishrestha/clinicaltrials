@@ -3,7 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { DetailCard } from "../../common/DetailCard";
 
 import type { ConditionsModule } from "@/types/studyModules";
-import { EmptyState } from "./EmptyState";
+import { EmptyState } from "../../common/EmptyState";
+import { FlexRow } from "@/components/common/FlexRow";
 
 interface Props {
   conditions?: ConditionsModule;
@@ -19,22 +20,19 @@ export function ConditionsCard({ conditions }: Props) {
         />
       ) : (
         <div className="space-y-6">
-          <div>
-            <h3 className="mb-3 font-semibold">Conditions</h3>
-
+          <FlexRow label="Conditions" value={
             <div className="flex flex-wrap gap-2">
               {conditions.conditions?.map((condition) => (
-                <Badge key={condition} variant="secondary">
+                <Badge key={condition} variant="accent">
                   {condition}
                 </Badge>
               ))}
             </div>
-          </div>
+          }
+          />
 
-          {conditions.keywords?.length ? (
-            <div>
-              <h3 className="mb-3 font-semibold">Keywords</h3>
-
+          {conditions.keywords?.length && (
+            <FlexRow label="Keywords" value={
               <div className="flex flex-wrap gap-2">
                 {conditions.keywords.map((keyword) => (
                   <Badge key={keyword} variant="secondary">
@@ -42,8 +40,9 @@ export function ConditionsCard({ conditions }: Props) {
                   </Badge>
                 ))}
               </div>
-            </div>
-          ) : null}
+            }
+            />
+          )}
         </div>
       )}
     </DetailCard>

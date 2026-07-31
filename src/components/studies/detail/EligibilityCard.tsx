@@ -1,10 +1,13 @@
 import type { EligibilityModule } from "@/types/studyModules";
 import { DetailCard } from "../../common/DetailCard";
 import { InfoRow } from "../../common/InfoRow";
-import { EmptyState } from "./EmptyState";
+import { EmptyState } from "../../common/EmptyState";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckIcon, CopyIcon } from "lucide-react";
+import { formatBoolean } from "@/lib/formatters/formatBoolean";
+import { FlexRow } from "@/components/common/FlexRow";
+import { InfoHeading } from "@/components/common/InfoHeading";
 
 interface Props {
   eligibility?: EligibilityModule;
@@ -36,17 +39,18 @@ export function EligibilityCard({ eligibility }: Props) {
 
             <InfoRow label="Sex" value={eligibility.sex} />
 
-            <InfoRow
-              label="Healthy Volunteers"
-              value={eligibility.healthyVolunteers ? "Yes" : "No"}
-            />
-
+            <InfoRow label="Healthy Volunteers" value={formatBoolean(eligibility.healthyVolunteers)} />
+            <InfoRow label="Gender based" value={formatBoolean(eligibility.genderBased)} />
             <InfoRow label="Standard Ages" value={eligibility.stdAges?.join(", ")} />
+            <InfoRow label="Sampling Method" value={eligibility.samplingMethod} />
+            <div className="my-3">
+              <FlexRow label="Study Population" value={eligibility.studyPopulation} />
+            </div>
           </div>
 
           {eligibility.eligibilityCriteria && (
             <div className="space-y-2">
-              <h3 className="font-semibold">Eligibility Criteria</h3>
+              <InfoHeading title="Eligibility Criteria" />
 
               <div className="flex flex-row-reverse pb-5">
                 <Button

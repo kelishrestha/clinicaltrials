@@ -75,5 +75,31 @@
     "STUDY_DIRECTOR": "Study Director",
     "PRINCIPAL_INVESTIGATOR": "Principal Investigator",
     "SUB_INVESTIGATOR": "Sub-Investigator"
+  },
+  "expandedAccessStatus": {
+    "AVAILABLE": "Available",
+    "NO_LONGER_AVAILABLE": "No longer available",
+    "TEMPORARILY_NOT_AVAILABLE": "Temporarily not available",
+    "APPROVED_FOR_MARKETING": "Approved for marketing"
+  },
+  "samplingMethod": {
+    "PROBABILITY_SAMPLE": "Probability Sample",
+    "NON_PROBABILITY_SAMPLE": "Non-Probability Sample"
+  },
+  "referenceType": {
+    "BACKGROUND": "background",
+    "RESULT": "result",
+    "DERIVED": "derived"
+  },
+  "ipdSharingInfoType": {
+    "STUDY_PROTOCOL": "Study Protocol",
+    "SAP": "Statistical Analysis Plan (SAP)",
+    "ICF": "Informed Consent Form (ICF)",
+    "CSR": "Clinical Study Report (CSR)",
+    "ANALYTIC_CODE": "Analytic Code"
+  },
+  "conditionBrowseLeafRelevance": {
+    "LOW": "low",
+    "HIGH": "high"
   }
 }

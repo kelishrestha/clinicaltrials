@@ -1,6 +1,6 @@
 
 import type { UseQueryResult } from "@tanstack/react-query";
-import { ErrorState } from "@/components/studies/detail/ErrorState";
+import { ErrorState } from "@/components/common/ErrorState";
 import { useStudyStatsStore } from "@/stores/studyStats.store";
 
 import { StatsLoading } from "./StatsLoading";

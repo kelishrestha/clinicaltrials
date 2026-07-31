@@ -9,6 +9,10 @@ export const studyNavigation: StudyNavigationItem[] = [
     label: "Identification",
   },
   {
+    id: "description",
+    label: "Description",
+  },
+  {
     id: "status",
     label: "Status",
   },
@@ -19,10 +23,6 @@ export const studyNavigation: StudyNavigationItem[] = [
   {
     id: "design",
     label: "Design",
-  },
-  {
-    id: "description",
-    label: "Description",
   },
   {
     id: "conditions",
@@ -53,12 +53,28 @@ export const studyNavigation: StudyNavigationItem[] = [
     label: "Locations",
   },
   {
+    id: "oversight",
+    label: "Oversight Information",
+  },
+  {
+    id: "ipd-sharing",
+    label: "IPD Sharing",
+  },
+  {
     id: "references",
     label: "References",
   },
   {
     id: "documents",
     label: "Documents",
+  },
+  {
+    id: "conditions-mesh",
+    label: "Conditions Mesh Terms",
+  },
+  {
+    id: "interventions-mesh",
+    label: "Interventions Mesh Terms",
   },
   {
     id: "results",

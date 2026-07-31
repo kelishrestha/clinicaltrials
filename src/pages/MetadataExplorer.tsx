@@ -1,6 +1,6 @@
 import AppLayout from "@/layouts/AppLayout";
 import { useStudyMetadata } from "@/hooks/useStudyMetadata";
-import { ApiResponseCard } from "@/components/studies/detail/ApiResponseCard";
+import { ApiResponseCard } from "@/components/common/ApiResponseCard";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 

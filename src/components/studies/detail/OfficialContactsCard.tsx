@@ -1,6 +1,6 @@
 import type { ContactsLocationsModule } from "@/types/studyModules";
 import { DetailCard } from "../../common/DetailCard";
-import { EmptyState } from "./EmptyState";
+import { EmptyState } from "../../common/EmptyState";
 
 interface Props {
   contacts?: ContactsLocationsModule;

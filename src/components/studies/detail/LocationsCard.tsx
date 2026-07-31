@@ -1,6 +1,8 @@
 import type { ContactsLocationsModule } from "@/types/studyModules";
 import { DetailCard } from "../../common/DetailCard";
-import { EmptyState } from "./EmptyState";
+import { EmptyState } from "../../common/EmptyState";
+import { InfoHeading } from "@/components/common/InfoHeading";
+import { ContactDetail } from "./ContactDetail";
 
 interface Props {
   locations?: ContactsLocationsModule;
@@ -25,37 +27,30 @@ export function LocationsCard({ locations }: Props) {
               key={`${location.facility}-${index}`}
               className="rounded-lg border border-secondary p-4"
             >
-              <h3 className="font-semibold">{location.facility}</h3>
+              <div className="mb-3">
+                <h3 className="font-semibold">{location.facility}</h3>
 
-              <p className="text-sm text-muted-foreground">
-                {[location.city, location.state, location.country].filter(Boolean).join(", ")}
-              </p>
+                <p className="text-sm text-muted-foreground">
+                  {[location.city, location.state, location.country].filter(Boolean).join(", ")}
+                </p>
 
-              {location.status && <p className="mt-2 text-sm">Status: {location.status}</p>}
-              {location.contacts?.length && (<h3 className="font-semibold mt-8 uppercase text-muted-foreground font-heading">Location Contacts</h3>)}
+                {location.zip && (<p className="mt-2 text-sm text-muted-foreground">ZipCode: <span className="text-black">{location.zip}</span></p>)}
+
+                {location.status && <p className="mt-2 text-sm text-muted-foreground">Status: <span className="text-black">{location.status}</span></p>}
+                {location.geoPoint && location.geoPoint.lat && (
+                  <div>
+                    <p className="mt-2 text-sm text-muted-foreground">Latitude: <span className="text-black">{location.geoPoint?.lat}</span></p>
+                    <p className="mt-2 text-sm text-muted-foreground">Longitude: <span className="text-black">{location.geoPoint?.lon}</span></p>
+                  </div>
+                )}
+              </div>
+              {location.contacts?.length && (<InfoHeading title="Location Contacts" />)}
               {location.contacts?.map((contact) => (
                 <div
                   key={`${contact.name}-${index}`}
                   className="p-4"
                 >
-                  <h3 className="font-semibold">{contact.name ?? "Unknown"}</h3>
-
-                  {contact.role && <p className="text-sm text-muted-foreground">{contact.role}</p>}
-
-                  <div className="mt-3 space-y-1 text-sm">
-                    {contact.phone && (
-                      <p>
-                        <strong>Phone:</strong> {contact.phone}
-                        {contact.phoneExt ? ` ext. ${contact.phoneExt}` : ""}
-                      </p>
-                    )}
-
-                    {contact.email && (
-                      <p>
-                        <strong>Email:</strong> {contact.email}
-                      </p>
-                    )}
-                  </div>
+                  <ContactDetail contact={contact} />
                 </div>
               ))}
             </div>
