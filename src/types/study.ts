@@ -64,7 +64,7 @@ export interface EnrollmentInfo {
 export interface MaskingInfo {
   masking?: StudyDesignMasking;
   maskingDescription?: string;
-  whoMasked?: StudyDesignWhoMasked;
+  whoMasked?: StudyDesignWhoMasked[];
   numDesignWhoMaskeds?: number;
 }
 

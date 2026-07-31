@@ -10,7 +10,8 @@
     "lint:fix": "oxlint --fix-dangerously .",
     "format": "oxfmt . --write",
     "fix-all": "pnpm lint:fix && pnpm format",
-    "preview": "vite preview"
+    "preview": "pnpm run build && wrangler dev",
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",
+    "@cloudflare/vite-plugin": "^1.48.0",
     "@rolldown/plugin-babel": "^0.2.3",
     "@types/babel__core": "^7.20.5",
     "@types/node": "^24.13.3",
@@ -53,6 +55,7 @@
     "oxfmt": "^0.61.0",
     "oxlint": "^1.71.0",
     "typescript": "~6.0.2",
-    "vite": "^8.1.1"
+    "vite": "^8.1.1",
+    "wrangler": "^4.115.0"
   }
 }

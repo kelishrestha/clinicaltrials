@@ -52,7 +52,7 @@ export function DesignCard({ design }: Props) {
 
             <InfoHeading title="Masking Information" />
             <InfoRow label="Masking" value={design.designInfo?.maskingInfo?.masking} />
-            <InfoRow label="Who is Masked" value={design.designInfo?.maskingInfo?.whoMasked?.join(",")} />
+            <InfoRow label="Who is Masked" value={design.designInfo?.maskingInfo?.whoMasked?.join(", ")} />
             <InfoRow
               label="Number of who maskeds"
               value={design.designInfo?.maskingInfo?.numDesignWhoMaskeds}
