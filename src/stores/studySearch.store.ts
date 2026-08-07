@@ -9,7 +9,7 @@ const DEFAULT_SEARCH: StudySearchParams = {
   status: ["RECRUITING", "NOT_YET_RECRUITING", "ACTIVE_NOT_RECRUITING"],
   missingField: undefined,
   pageToken: undefined,
-  pageSize: 20,
+  pageSize: 21,
   previousPageTokens: [],
 };
 
