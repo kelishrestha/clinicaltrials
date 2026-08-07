@@ -63,11 +63,11 @@ export function StudyCard({ study }: Props) {
 
         </CardContent>
         <CardFooter className="border-t border-muted text-xs text-muted-foreground">
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 gap-y-2">
             <div className="flex flex-col items-end">
               <Tooltip>
                 <TooltipTrigger>
-                  <span className="text-2xl text-black font-semibold">
+                  <span className="text-2xl text-primary font-semibold">
                     {numCentralContacts}
                   </span>
                 </TooltipTrigger>
@@ -82,7 +82,7 @@ export function StudyCard({ study }: Props) {
             <div className="flex flex-col items-end">
               <Tooltip>
                 <TooltipTrigger>
-                  <span className="text-2xl text-black font-semibold">
+                  <span className="text-2xl text-primary font-semibold">
                     {numLocations}
                   </span>
                 </TooltipTrigger>
@@ -103,7 +103,7 @@ export function StudyCard({ study }: Props) {
             <div className="flex flex-col items-end">
               <Tooltip>
                 <TooltipTrigger>
-                  <span className="text-2xl text-black font-semibold">
+                  <span className="text-2xl text-primary font-semibold">
                     {locationsWithEmail.length}
                   </span>
                 </TooltipTrigger>
@@ -124,7 +124,7 @@ export function StudyCard({ study }: Props) {
               </span>
             </div>
             <div className="flex flex-col items-end">
-              <span className="text-2xl text-black font-semibold">
+              <span className="text-2xl text-primary font-semibold">
                 {numLocationMissing}
               </span>
               <span className="text-right">
