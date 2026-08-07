@@ -7,6 +7,7 @@ const DEFAULT_SEARCH: StudySearchParams = {
   term: "",
   location: "",
   status: undefined,
+  missingField: undefined,
   pageToken: undefined,
   pageSize: 20,
   previousPageTokens: [],
@@ -27,6 +28,10 @@ interface StudySearchStore {
 
   setLocation(
     location: string,
+  ): void;
+
+  setMissingField(
+    missingField?: string,
   ): void;
 
   nextPage(
@@ -79,6 +84,16 @@ export const useStudySearchStore =
         search: {
           ...state.search,
           location,
+          pageToken: undefined,
+          previousPageTokens: [],
+        },
+      })),
+
+    setMissingField: (missingField) =>
+      set((state) => ({
+        search: {
+          ...state.search,
+          missingField,
           pageToken: undefined,
           previousPageTokens: [],
         },

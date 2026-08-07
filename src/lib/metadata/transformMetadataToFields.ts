@@ -16,6 +16,9 @@ export function transformMetadataToFields(
       node.name,
     ];
 
+    // The nearest "...Module" ancestor names the group a field belongs to.
+    // Top-level sections (and root-level leaves such as hasResults) have no
+    // Module ancestor, so they fall back to their own section title.
     const currentModule =
       node.name.endsWith("Module")
         ? node.title ??
@@ -23,13 +26,16 @@ export function transformMetadataToFields(
             /Module$/,
             "",
           )
-        : module;
+        : module ||
+          (path.length === 0
+            ? node.title ?? node.name
+            : "");
 
     const hasChildren =
-      node.children &&
+      node.children !== undefined &&
       node.children.length > 0;
 
-    // Skip container nodes
+    // Only leaves are real fields; everything else is a container.
     if (!hasChildren) {
       fields.push({
         label:
@@ -38,6 +44,9 @@ export function transformMetadataToFields(
 
         value:
           currentPath.join("."),
+
+        // Essie search-area name, required for AREA[...] expressions.
+        piece: node.piece,
 
         module: currentModule,
 

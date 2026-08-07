@@ -48,17 +48,28 @@ export function StudyCard({ study }: Props) {
           <StudyStatusBadge status={protocol.statusModule.overallStatus} />
 
           <p className="text-sm text-muted-foreground truncate">
-            {protocol.conditionsModule?.conditions?.join(", ")}
+            <Tooltip>
+              <TooltipTrigger>
+                <span className="text-xs">{protocol.conditionsModule?.conditions?.length ?? 0} conditions</span>
+              </TooltipTrigger>
+              {protocol.conditionsModule?.conditions && protocol.conditionsModule?.conditions.length > 0 &&(
+                <TooltipContent>
+                  {protocol.conditionsModule?.conditions?.join(", ")}
+                </TooltipContent>
+              )}
+            </Tooltip>
           </p>
 
 
         </CardContent>
-        <CardFooter className="border-t border-muted text-xs">
-          <div className="flex flex-col">
-            <p className="text-sm text-muted-foreground">
+        <CardFooter className="border-t border-muted text-xs text-muted-foreground">
+          <div className="grid grid-cols-2">
+            <div className="flex flex-col items-end">
               <Tooltip>
                 <TooltipTrigger>
-                  {numCentralContacts} central contacts
+                  <span className="text-2xl text-black font-semibold">
+                    {numCentralContacts}
+                  </span>
                 </TooltipTrigger>
                 { centralContacts?.length && (
                   <TooltipContent>
@@ -66,31 +77,36 @@ export function StudyCard({ study }: Props) {
                   </TooltipContent>
                 )}
               </Tooltip>
-            </p>
-            <p className="text-sm text-muted-foreground">
+              central contacts
+            </div>
+            <div className="flex flex-col items-end">
               <Tooltip>
                 <TooltipTrigger>
-                  {numLocations} locations
+                  <span className="text-2xl text-black font-semibold">
+                    {numLocations}
+                  </span>
                 </TooltipTrigger>
                 <TooltipContent>
                   <div className="space-y-1">
                     {locations?.map((location, index) => (
                       <div key={index}>
                         <strong>{location.facility ?? "Unknown facility"}</strong>
-                        {" → "}
+                        {" in city:  "}
                         {location.city ?? "Unknown city"}
                       </div>
                     ))}
                   </div>
                 </TooltipContent>
               </Tooltip>
-            </p>
-            <p className="text-sm text-muted-foreground">
+              locations
+            </div>
+            <div className="flex flex-col items-end">
               <Tooltip>
                 <TooltipTrigger>
-                  {locationsWithEmail.length} locations with email
+                  <span className="text-2xl text-black font-semibold">
+                    {locationsWithEmail.length}
+                  </span>
                 </TooltipTrigger>
-
                 {locationsWithEmail.length > 0 && (
                   <TooltipContent>
                     <div className="space-y-1">
@@ -103,10 +119,18 @@ export function StudyCard({ study }: Props) {
                   </TooltipContent>
                 )}
               </Tooltip>
-            </p>
-            <p className="text-sm text-muted-foreground">
-              {numLocationMissing} missing location contacts
-            </p>
+              <span className="text-right">
+                locations having email
+              </span>
+            </div>
+            <div className="flex flex-col items-end">
+              <span className="text-2xl text-black font-semibold">
+                {numLocationMissing}
+              </span>
+              <span className="text-right">
+                missing location contacts
+              </span>
+            </div>
           </div>
         </CardFooter>
       </Card>

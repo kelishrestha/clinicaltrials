@@ -29,6 +29,12 @@ export interface StudySearchParams {
 
   location?: string;
 
+  /**
+   * Essie search-area name (piece) that must be absent from the study,
+   * e.g. "LocationContactEMail" -> query.term=AREA[LocationContactEMail]MISSING
+   */
+  missingField?: string;
+
   overallStatus?: StudyStatus[];
 
   condition?: string;
