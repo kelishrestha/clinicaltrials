@@ -8,9 +8,9 @@ interface DetailCardProps {
 
 export function DetailCard({ id, title, children }: DetailCardProps) {
   return (
-    <Card id={id} data-study-section className="scroll-mt-24">
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
+    <Card id={id} data-study-section={id ? "" : undefined} className="scroll-mt-24 gap-4 py-4">
+      <CardHeader className="border-b pb-4!">
+        <CardTitle className="text-primary!">{title}</CardTitle>
       </CardHeader>
 
       <CardContent>{children}</CardContent>
