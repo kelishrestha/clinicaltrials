@@ -18,7 +18,7 @@ export function SelectedFields() {
 
   if (fields && fields.length === 0) {
     return (
-      <div className="space-y-2">
+      <div className="space-y-2 rounded-md bg-muted p-3">
         <h3 className="font-medium">
           Selected Fields
         </h3>
@@ -41,7 +41,7 @@ export function SelectedFields() {
   }
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 rounded-md bg-muted p-3">
       <div className="flex items-center justify-between">
         <h3 className="font-medium">
           Selected Fields
@@ -60,7 +60,7 @@ export function SelectedFields() {
             <Badge
               key={field}
               variant="outline"
-              className="gap-1"
+              className="gap-1 px-1.5 py-0.5 text-[0.5rem]"
             >
               <span className=" truncate">
                 {label}
@@ -72,7 +72,7 @@ export function SelectedFields() {
                   removeField(field)
                 }
               >
-                <X className="h-3 w-3" />
+                <X className="h-2.5 w-2.5" />
               </button>
             </Badge>
           );

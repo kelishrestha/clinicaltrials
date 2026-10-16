@@ -74,7 +74,7 @@ export function StatFieldPicker() {
         }
       />
 
-      <ScrollArea className="h-162.5">
+      <ScrollArea className="h-96 lg:h-162.5">
         <div className="space-y-4">
           {Object.entries(
             grouped,
