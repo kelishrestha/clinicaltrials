@@ -14,6 +14,8 @@ export const studyKeys = {
 
   stats: (search: StudyFieldSearchParams) => ["study-stats", search] as const,
 
+  overview: () => [...studyKeys.all, "overview-stats"] as const,
+
   metadata: () =>
     [...studyKeys.all, "metadata"] as const,
 };
