@@ -5,6 +5,10 @@ export interface StudyNavigationItem {
 
 export const studyNavigation: StudyNavigationItem[] = [
   {
+    id: "summary",
+    label: "Summary",
+  },
+  {
     id: "identification",
     label: "Identification",
   },
