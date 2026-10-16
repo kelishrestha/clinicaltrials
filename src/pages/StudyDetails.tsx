@@ -17,12 +17,11 @@ import { DocumentsCard } from "@/components/studies/detail/DocumentsCard";
 import { DesignCard } from "@/components/studies/detail/DesignCard";
 import { DescriptionCard } from "@/components/studies/detail/DescriptionCard";
 import { StudyNavigation } from "@/components/studies/detail/StudyNavigation";
-import { useFloatingSidebar } from "@/hooks/useFloatingSidebar";
 import { OutcomeCard } from "@/components/studies/detail/OutcomeCard";
 import { IdentificationCard } from "@/components/studies/detail/IdentificationCard";
 import { OfficialContactsCard } from "@/components/studies/detail/OfficialContactsCard";
-import { StudyHeaderSkeleton } from "@/components/studies/skeletons/StudyHeaderSkeleton";
-import { DetailCardSkeleton } from "@/components/common/skeletons/DetailCardSkeleton";
+import { StudySummary } from "@/components/studies/detail/StudySummary";
+import { StudyDetailSkeleton } from "@/components/studies/skeletons/StudyDetailSkeleton";
 import { ApiResponseCard } from "@/components/common/ApiResponseCard";
 import { MeshBrowseModuleCard } from "@/components/studies/detail/MeshBrowseModuleCard";
 import { IpdSharingCard } from "@/components/studies/detail/IpdSharingCard";
@@ -30,20 +29,13 @@ import { OversightCard } from "@/components/studies/detail/OversightCard";
 
 export default function StudyDetailsPage() {
   const { nctId = "" } = useParams();
-  const { sidebarRef, containerRef, contentRef, style } = useFloatingSidebar();
 
   const { data, isLoading, isError } = useStudy(nctId);
 
   if (isLoading) {
     return (
       <AppLayout>
-        <StudyHeaderSkeleton />
-
-        <div className="mt-8 space-y-6">
-          <DetailCardSkeleton />
-          <DetailCardSkeleton />
-          <DetailCardSkeleton />
-        </div>
+        <StudyDetailSkeleton />
       </AppLayout>
     );
   }
@@ -60,13 +52,15 @@ export default function StudyDetailsPage() {
     <AppLayout>
       <div className="mx-auto max-w-screen-2xl px-6">
         <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
-          <aside ref={containerRef} className="relative hidden lg:block w-65">
-            <div ref={sidebarRef} style={style}>
+          <aside className="hidden lg:block w-65">
+            <div className="sticky top-8">
               <StudyNavigation />
             </div>
           </aside>
-          <main ref={contentRef} className="min-w-0 space-y-6">
+          <main className="min-w-0 space-y-6">
             <StudyHeader study={data} />
+
+            <StudySummary study={data} />
 
             <IdentificationCard identification={protocol.identificationModule} />
 

@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import { useActiveStudySection } from "@/hooks/useActiveStudySection";
 import { studyNavigation } from "@/constants/studySections";
 import { MobileStudyNavigation } from "./MobileStudyNavigation";
@@ -12,12 +13,11 @@ export function StudyNavigation() {
     <>
       {/* Desktop */}
       <nav className="max-h-[calc(100vh-7rem)] overflow-y-auto pr-2">
-        <Link
-          to="/"
-          className="bg-secondary w-full p-2 mb-3 rounded-sm inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Studies
+        <Link to="/" className="mb-3 block">
+          <Button variant="outline" size="xs" className="w-full justify-start">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Home
+          </Button>
         </Link>
         <ul className="space-y-1">
           {studyNavigation.map((item) => {
