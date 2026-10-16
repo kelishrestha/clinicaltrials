@@ -1,6 +1,7 @@
-import { type ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 
 import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -13,6 +14,7 @@ import { DetailCard } from "@/components/common/DetailCard";
 import { MeshLink } from "./MeshLink";
 import { cn } from "@/lib/utils";
 import { roleLabel } from "@/lib/roleLabel";
+import { matchesLocation } from "@/lib/filterLocations";
 import { type Study } from "@/types/study";
 
 interface CountLinkProps {
@@ -65,6 +67,8 @@ interface Props {
 }
 
 export function StudySummary({ study }: Props) {
+  const [locationQuery, setLocationQuery] = useState("");
+
   const protocol = study.protocolSection;
   const derived = study.derivedSection;
 
@@ -117,7 +121,9 @@ export function StudySummary({ study }: Props) {
 
   // Grouped by location: facility and city render once and span the location's
   // contact rows. A location with no contacts still gets a single placeholder row.
-  const locationGroups = locations.map((location) => {
+  const locationGroups = locations
+    .filter((location) => matchesLocation(location, locationQuery))
+    .map((location) => {
     const locationContacts = location.contacts ?? [];
 
     return {
@@ -260,6 +266,21 @@ export function StudySummary({ study }: Props) {
             Study Locations ({locations.length})
           </h3>
 
+          {locations.length > 0 && (
+            <Input
+              value={locationQuery}
+              onChange={(event) => setLocationQuery(event.target.value)}
+              placeholder="Filter by city, state or zip"
+              className="h-auto w-full max-w-xs rounded-md border border-secondary border-b-secondary px-3 py-1.5 text-xs md:text-xs focus-visible:border-ring"
+            />
+          )}
+
+          {locations.length > 0 && (
+            <p className="pb-2 text-right text-xs italic text-muted-foreground">
+              {locationGroups.length} locations listed
+            </p>
+          )}
+
           {locationGroups.length > 0 ? (
             <Table compact>
               <TableHeader>
@@ -318,7 +339,11 @@ export function StudySummary({ study }: Props) {
               </TableBody>
             </Table>
           ) : (
-            <p className="text-sm text-muted-foreground">No locations provided.</p>
+            <p className="text-sm text-muted-foreground">
+              {locations.length > 0
+                ? "No locations match the filter."
+                : "No locations provided."}
+            </p>
           )}
         </div>
       </div>
