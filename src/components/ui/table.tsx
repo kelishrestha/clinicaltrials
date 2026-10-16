@@ -2,12 +2,21 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-function Table({ className, ...props }: React.ComponentProps<"table">) {
+function Table({
+  className,
+  compact,
+  ...props
+}: React.ComponentProps<"table"> & { compact?: boolean }) {
   return (
     <div data-slot="table-container" className="relative w-full overflow-x-auto">
       <table
         data-slot="table"
-        className={cn("w-full caption-bottom text-sm", className)}
+        className={cn(
+          "w-full caption-bottom text-sm",
+          compact &&
+            "border-collapse border border-border text-xs [&_th]:h-auto [&_th]:border [&_th]:border-border [&_th]:px-2 [&_th]:py-1.5 [&_thead_th]:bg-primary [&_thead_th]:text-primary-foreground [&_td]:border [&_td]:border-border [&_td]:px-2 [&_td]:py-1 [&_td]:align-top",
+          className,
+        )}
         {...props}
       />
     </div>
