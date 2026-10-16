@@ -21,8 +21,10 @@ export function useActiveStudySection() {
         }
       },
       {
-        root: null,
-        rootMargin: "-96px 0px -60% 0px",
+        // The study detail body scrolls inside its own panel (not the window),
+        // so the observer must use that panel as the intersection root.
+        root: document.querySelector<HTMLElement>("[data-scroll-root]"),
+        rootMargin: "0px 0px -60% 0px",
         threshold: 0,
       },
     );
