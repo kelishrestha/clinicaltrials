@@ -21,9 +21,17 @@ export function MeshBrowseModuleCard({ browseLeafModule, type }: MeshCardProps) 
           />
         ) : (
         <div>
-          <InfoHeading title="Meshes" />
+          <InfoHeading title="Meshes" subtitle={
+            <span className="ml-2 rounded-full bg-primary-button px-2 py-1 text-xs font-medium font-sans text-primary-button-foreground">
+              {(browseLeafModule.meshes || []).length}
+            </span>
+          } />
           <MeshCard meshDetails={browseLeafModule.meshes || []} />
-          <InfoHeading title="Ancestor Meshes" />
+          <InfoHeading title="Ancestor Meshes" subtitle={
+            <span className="ml-2 rounded-full bg-primary-button px-2 py-1 text-xs font-medium font-sans text-primary-button-foreground">
+              {(browseLeafModule.ancestors || []).length}
+            </span>
+          } />
           <MeshCard meshDetails={browseLeafModule.ancestors || []} />
           <FlexRow label="Browse Leaf" value={
             browseLeafModule.browseLeaves?.length && (

@@ -10,24 +10,10 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { DetailCard } from "@/components/common/DetailCard";
+import { MeshLink } from "./MeshLink";
 import { cn } from "@/lib/utils";
+import { roleLabel } from "@/lib/roleLabel";
 import { type Study } from "@/types/study";
-
-const ROLE_LABELS: Record<string, string> = {
-  STUDY_CHAIR: "Study Chair",
-  STUDY_DIRECTOR: "Study Director",
-  PRINCIPAL_INVESTIGATOR: "Principal Investigator",
-  SUB_INVESTIGATOR: "Sub-Investigator",
-  CONTACT: "Contact",
-};
-
-function roleLabel(role?: string) {
-  if (!role) {
-    return "-";
-  }
-
-  return ROLE_LABELS[role] ?? role.replaceAll("_", " ");
-}
 
 interface CountLinkProps {
   value: number;
@@ -207,7 +193,9 @@ export function StudySummary({ study }: Props) {
                     </TableCell>
                     <TableCell className="text-muted-foreground">{row.type}</TableCell>
                     <TableCell className="font-medium text-foreground">{row.term}</TableCell>
-                    <TableCell className="font-mono text-muted-foreground">{row.id}</TableCell>
+                    <TableCell className="font-mono text-muted-foreground">
+                      <MeshLink id={row.id} />
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
