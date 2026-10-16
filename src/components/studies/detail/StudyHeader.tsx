@@ -15,7 +15,7 @@ export function StudyHeader({ study }: StudyHeaderProps) {
       <Card className="rounded-sm">
         <CardContent className="space-y-6 p-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <Badge variant="outline">{protocol.identificationModule.nctId}</Badge>
+            <Badge variant="outline" className="font-mono">{protocol.identificationModule.nctId}</Badge>
           </div>
 
           <div className="space-y-2">

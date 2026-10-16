@@ -32,7 +32,13 @@ export function StudyCard({ study }: Props) {
     <Link to={`/studies/${protocol.identificationModule.nctId}`}>
       <Card className="h-full transition-all hover:-translate-y-1 hover:shadow-lg">
         <CardHeader className="space-y-3">
-          <p className="text-xs text-muted-foreground">{protocol.identificationModule.nctId}</p>
+          <div className="flex items-center justify-between gap-2">
+            <p className="font-mono text-xs text-muted-foreground">
+              {protocol.identificationModule.nctId}
+            </p>
+
+            <StudyStatusBadge status={protocol.statusModule.overallStatus} />
+          </div>
 
           <Tooltip>
             <TooltipTrigger>
@@ -45,8 +51,6 @@ export function StudyCard({ study }: Props) {
         </CardHeader>
 
         <CardContent className="space-y-3">
-          <StudyStatusBadge status={protocol.statusModule.overallStatus} />
-
           <p className="text-sm text-muted-foreground truncate">
             <Tooltip>
               <TooltipTrigger>

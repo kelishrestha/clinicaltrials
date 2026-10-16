@@ -26,6 +26,8 @@ const statusVariant: Record<
 
 export function StudyStatusBadge({ status }: Props) {
   return (
-    <Badge variant={statusVariant[status] ?? "secondary"}>{status.replaceAll("_", " ")}</Badge>
+    <Badge variant={statusVariant[status] ?? "secondary"} className="px-2 py-px">
+      {status.replaceAll("_", " ")}
+    </Badge>
   );
 }
