@@ -51,15 +51,14 @@ export default function StudyDetailsPage() {
   return (
     <AppLayout>
       <div className="mx-auto max-w-screen-2xl px-6">
-        <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
-          <aside className="hidden lg:block w-65">
-            <div className="sticky top-8">
-              <StudyNavigation />
-            </div>
+        <div className="grid h-[calc(100vh-4rem)] gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
+          <aside className="hidden w-65 overflow-y-auto lg:block">
+            <StudyNavigation />
           </aside>
-          <main className="min-w-0 space-y-6">
+          <main className="flex min-w-0 flex-col overflow-hidden">
             <StudyHeader study={data} />
 
+            <div className="flex-1 space-y-6 overflow-y-auto bg-slate-50 px-1 pt-6 mt-1">
             <StudySummary study={data} />
 
             <IdentificationCard identification={protocol.identificationModule} />
@@ -99,6 +98,7 @@ export default function StudyDetailsPage() {
             <MeshBrowseModuleCard type="interventions" browseLeafModule={derivedSection.interventionBrowseModule || {}} />
 
             <ApiResponseCard data={data} />
+            </div>
           </main>
         </div>
       </div>

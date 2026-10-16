@@ -13,7 +13,7 @@ export function StudyHeader({ study }: StudyHeaderProps) {
 
   return (
     <div className="space-y-4">
-      <Card className="rounded-sm py-0">
+      <Card className="rounded-sm py-0 ring-0 shadow-none">
         <CardContent className="space-y-6 p-6">
           <div className="flex flex-wrap items-center gap-3">
             <Badge variant="outline" className="font-mono">
