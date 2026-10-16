@@ -1,6 +1,7 @@
 import AppLayout from "@/layouts/AppLayout";
 import { useStudyMetadata } from "@/hooks/useStudyMetadata";
 import { ApiResponseCard } from "@/components/common/ApiResponseCard";
+import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -14,16 +15,18 @@ export default function MetadataExplorer() {
   return (
     <AppLayout>
       <div className="space-y-6">
-        <Link
-          to="/"
-          className="bg-secondary p-2 mb-3 rounded-sm inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Home
-        </Link>
-        <h1 className="text-3xl font-bold text-primary!">
-          Study Metadata
-        </h1>
+        <header className="flex items-center justify-between gap-4">
+          <h1 className="mb-0 text-3xl font-bold leading-tight text-primary!">
+            Study Metadata
+          </h1>
+
+          <Link to="/">
+            <Button variant="outline" size="xs">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Button>
+          </Link>
+        </header>
 
         {isLoading && <p>Loading...</p>}
 
