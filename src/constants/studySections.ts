@@ -33,12 +33,24 @@ export const studyNavigation: StudyNavigationItem[] = [
     label: "Conditions",
   },
   {
+    id: "conditions-mesh",
+    label: "Conditions Mesh Terms",
+  },
+  {
     id: "eligibility",
     label: "Eligibility",
   },
   {
     id: "arms",
     label: "Arms",
+  },
+  {
+    id: "interventions",
+    label: "Interventions",
+  },
+  {
+    id: "interventions-mesh",
+    label: "Interventions Mesh Terms",
   },
   {
     id: "outcomes",
@@ -71,18 +83,6 @@ export const studyNavigation: StudyNavigationItem[] = [
   {
     id: "documents",
     label: "Documents",
-  },
-  {
-    id: "conditions-mesh",
-    label: "Conditions Mesh Terms",
-  },
-  {
-    id: "interventions-mesh",
-    label: "Interventions Mesh Terms",
-  },
-  {
-    id: "results",
-    label: "Results",
   },
   {
     id: "api-response",

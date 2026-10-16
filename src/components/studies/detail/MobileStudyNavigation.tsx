@@ -1,15 +1,14 @@
 import { studyNavigation } from "@/constants/studySections";
 import { cn } from "@/lib/utils";
+import { useActiveStudySection } from "@/hooks/useActiveStudySection";
 
-interface Props {
-  activeSection: string;
-}
+export function MobileStudyNavigation() {
+  const activeSection = useActiveStudySection();
 
-export function MobileStudyNavigation({ activeSection }: Props) {
   return (
-    <div className="sticky top-16 z-40 -mx-6 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 lg:hidden">
+    <div className="border-b border-secondary bg-slate-50 lg:hidden">
       <nav className="overflow-x-auto">
-        <ul className="flex min-w-max gap-2 px-6 py-3">
+        <ul className="flex min-w-max gap-2 py-3">
           {studyNavigation.map((item) => {
             return (
               <li key={item.id}>

@@ -10,6 +10,7 @@ import { SponsorCard } from "@/components/studies/detail/SponsorCard";
 import { EligibilityCard } from "@/components/studies/detail/EligibilityCard";
 import { ConditionsCard } from "@/components/studies/detail/ConditionsCard";
 import { ArmsCard } from "@/components/studies/detail/ArmsCard";
+import { InterventionsCard } from "@/components/studies/detail/InterventionsCard";
 import { ContactsCard } from "@/components/studies/detail/ContactsCard";
 import { LocationsCard } from "@/components/studies/detail/LocationsCard";
 import { ReferencesCard } from "@/components/studies/detail/ReferencesCard";
@@ -17,6 +18,7 @@ import { DocumentsCard } from "@/components/studies/detail/DocumentsCard";
 import { DesignCard } from "@/components/studies/detail/DesignCard";
 import { DescriptionCard } from "@/components/studies/detail/DescriptionCard";
 import { StudyNavigation } from "@/components/studies/detail/StudyNavigation";
+import { MobileStudyNavigation } from "@/components/studies/detail/MobileStudyNavigation";
 import { OutcomeCard } from "@/components/studies/detail/OutcomeCard";
 import { IdentificationCard } from "@/components/studies/detail/IdentificationCard";
 import { OfficialContactsCard } from "@/components/studies/detail/OfficialContactsCard";
@@ -53,12 +55,17 @@ export default function StudyDetailsPage() {
       <div className="mx-auto max-w-screen-2xl px-6">
         <div className="grid h-[calc(100vh-4rem)] gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
           <aside className="hidden w-65 overflow-y-auto lg:block">
-            <StudyNavigation />
+            <StudyNavigation study={data} />
           </aside>
           <main className="flex min-w-0 flex-col overflow-hidden">
             <StudyHeader study={data} />
 
-            <div className="flex-1 space-y-6 overflow-y-auto bg-slate-50 px-1 pt-6 mt-1">
+            <MobileStudyNavigation />
+
+            <div
+              data-scroll-root
+              className="flex-1 space-y-6 overflow-y-auto bg-slate-50 px-1 pt-6 mt-1"
+            >
             <StudySummary study={data} />
 
             <IdentificationCard identification={protocol.identificationModule} />
@@ -73,9 +80,15 @@ export default function StudyDetailsPage() {
 
             <ConditionsCard conditions={protocol.conditionsModule} />
 
+            <MeshBrowseModuleCard type="conditions" browseLeafModule={derivedSection.conditionBrowseModule || {}} />
+
             <EligibilityCard eligibility={protocol.eligibilityModule} />
 
             <ArmsCard arms={protocol.armsInterventionsModule} />
+
+            <InterventionsCard interventions={protocol.armsInterventionsModule} />
+
+            <MeshBrowseModuleCard type="interventions" browseLeafModule={derivedSection.interventionBrowseModule || {}} />
 
             <OutcomeCard outcomes={protocol.outcomesModule} />
 
@@ -92,10 +105,6 @@ export default function StudyDetailsPage() {
             <OversightCard data={protocol.oversightModule || {}} />
 
             <IpdSharingCard data={protocol.ipdSharingStatementModule || {}} />
-
-            <MeshBrowseModuleCard type="conditions" browseLeafModule={derivedSection.conditionBrowseModule || {}} />
-
-            <MeshBrowseModuleCard type="interventions" browseLeafModule={derivedSection.interventionBrowseModule || {}} />
 
             <ApiResponseCard data={data} />
             </div>

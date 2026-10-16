@@ -15,7 +15,7 @@ export function OutcomeList({ title, outcomes }: Props) {
   return (
     <section className="space-y-4">
       <InfoHeading title={title} subtitle={
-        <span className="ml-2 rounded-full bg-muted px-2 py-1 text-xs font-medium font-sans">
+        <span className="ml-2 rounded-full bg-primary-button px-2 py-1 text-xs font-medium font-sans text-primary-button-foreground">
           {outcomes.length}
         </span>
       } />
