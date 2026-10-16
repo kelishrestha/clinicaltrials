@@ -3,6 +3,7 @@ import { DetailCard } from "../../common/DetailCard";
 import { EmptyState } from "../../common/EmptyState";
 import { formatDate } from "@/lib/formatters/formatDate";
 import { formatBoolean } from "@/lib/formatters/formatBoolean";
+import { IndexedCard } from "@/components/common/IndexedCard";
 
 interface Props {
   documents?: DocumentsModule;
@@ -21,11 +22,8 @@ export function DocumentsCard({ documents }: Props) {
       ) : (
         <div className="space-y-3">
           {docs.map((doc, index) => (
-            <div
-              key={`${doc.label}-${index}`}
-              className="rounded-lg border border-secondary p-4 space-y-2"
-            >
-
+            <IndexedCard key={`${doc.label}-${index}`} index={index + 1}>
+              <div className="space-y-2">
               {doc.label && (<p>{doc.label}</p>)}
               {doc.filename && (<p>{doc.filename}</p>)}
               {doc.size && (<p className="flex gap-2"><span className="text-muted-foreground">Size:</span>{doc.size}</p>)}
@@ -34,7 +32,8 @@ export function DocumentsCard({ documents }: Props) {
               {doc.hasProtocol && (<p className="flex gap-2"><span className="text-muted-foreground">Has Protocol:</span>{formatBoolean(doc.hasProtocol)}</p>)}
               {doc.hasSap && (<p className="flex gap-2"><span className="text-muted-foreground">Has SAP:</span>{formatBoolean(doc.hasSap)}</p>)}
               {doc.hasIcf && (<p className="flex gap-2"><span className="text-muted-foreground">Has ICF:</span>{formatBoolean(doc.hasIcf)}</p>)}
-            </div>
+              </div>
+            </IndexedCard>
           ))}
         </div>
       )}

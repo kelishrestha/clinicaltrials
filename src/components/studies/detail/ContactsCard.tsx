@@ -2,6 +2,7 @@ import type { ContactsLocationsModule } from "@/types/studyModules";
 import { DetailCard } from "../../common/DetailCard";
 import { EmptyState } from "../../common/EmptyState";
 import { ContactDetail } from "./ContactDetail";
+import { IndexedCard } from "@/components/common/IndexedCard";
 
 interface Props {
   contacts?: ContactsLocationsModule;
@@ -22,12 +23,9 @@ export function ContactsCard({ contacts }: Props) {
             <span className="text-black pl-1">{contacts.numCentralContacts || 'N/A'}</span>
           </p>
           {contacts.centralContacts.map((contact, index) => (
-            <div
-              key={`${contact.name}-${index}`}
-              className="rounded-lg border border-secondary p-4"
-            >
+            <IndexedCard key={`${contact.name}-${index}`} index={index + 1}>
               <ContactDetail contact={contact} />
-            </div>
+            </IndexedCard>
           ))}
         </div>
       )}

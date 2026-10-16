@@ -1,6 +1,7 @@
 import type { ContactsLocationsModule } from "@/types/studyModules";
 import { DetailCard } from "../../common/DetailCard";
 import { EmptyState } from "../../common/EmptyState";
+import { IndexedCard } from "@/components/common/IndexedCard";
 
 interface Props {
   contacts?: ContactsLocationsModule;
@@ -21,15 +22,12 @@ export function OfficialContactsCard({ contacts }: Props) {
             <span className="text-black pl-1">{contacts.numOverallOfficials || 'N/A'}</span>
           </p>
           {contacts.overallOfficials.map((contact, index) => (
-            <div
-              key={`${contact.name}-${index}`}
-              className="rounded-lg border border-secondary p-4"
-            >
+            <IndexedCard key={`${contact.name}-${index}`} index={index + 1}>
               <h3 className="font-semibold">{contact.name ?? "Unknown"}</h3>
 
               {contact.role && <p className="text-sm text-muted-foreground">{contact.role}</p>}
               {contact.affiliation && <p className="text-sm text-muted-foreground">{contact.affiliation}</p>}
-            </div>
+            </IndexedCard>
           ))}
         </div>
       )}
