@@ -181,6 +181,11 @@ p {
   margin: 0;
 }
 
+::selection {
+  background: #e7fefd;
+  color: var(--foreground);
+}
+
 code,
 .counter {
   font-family: var(--mono);
