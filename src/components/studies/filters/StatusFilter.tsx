@@ -1,4 +1,5 @@
-import { ChevronsUpDown } from "lucide-react";
+import { ChevronsUpDown, X } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Popover,
@@ -48,10 +49,14 @@ export function StatusFilter({ value, onChange }: Props) {
     <div className="space-y-2">
       <span className="text-sm font-medium">Recruitment Status</span>
 
+      <p className="text-xs text-muted-foreground pb-3">
+        Show only studies with the selected recruitment statuses
+      </p>
+
       <Popover>
-        <PopoverTrigger className="inline-flex w-full items-center justify-between rounded-md border border-secondary px-3 py-2 text-sm">
+        <PopoverTrigger className="inline-flex w-full items-center justify-between rounded-md border border-secondary px-3 py-1.5 text-xs">
           <span>{label}</span>
-          <ChevronsUpDown className="h-4 w-4 opacity-60" />
+          <ChevronsUpDown className="h-3.5 w-3.5 opacity-60" />
         </PopoverTrigger>
 
         <PopoverContent align="start" className="w-80 p-2">
@@ -107,6 +112,31 @@ export function StatusFilter({ value, onChange }: Props) {
           </div>
         </PopoverContent>
       </Popover>
+
+      {value.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {value.map((status) => (
+            <Badge
+              key={status}
+              variant="outline"
+              className="gap-1 px-2 py-px text-[0.5rem] bg-selected"
+            >
+              <span className="truncate">
+                {formatStudyEnum(status)}
+              </span>
+
+              <button
+                type="button"
+                aria-label={`Remove ${formatStudyEnum(status)}`}
+                onClick={() => toggle(status)}
+                className="opacity-60 hover:opacity-100"
+              >
+                <X className="h-2.5 w-2.5" />
+              </button>
+            </Badge>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

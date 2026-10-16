@@ -29,7 +29,7 @@ export function StudySearch() {
   }
 
   return (
-    <div className="relative max-w-xl">
+    <div className="relative w-full max-w-3xl">
       <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
 
       <Input
