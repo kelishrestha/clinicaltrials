@@ -60,7 +60,7 @@ interface SummaryStatCardProps {
 
 function SummaryStatCard({ label, value, href, children }: SummaryStatCardProps) {
   return (
-    <Card className="space-y-2 p-4">
+    <Card className="gap-1 p-4">
       <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
         {label}
       </p>
@@ -154,7 +154,7 @@ export function StudySummary({ study }: Props) {
 
   return (
     <DetailCard id="summary" title="Summary">
-      <div className="space-y-6">
+      <div className="space-y-4">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
           <SummaryStatCard label="Condition Meshes" value={meshes.length} href="#conditions-mesh">
             <p className={subLine}>
@@ -184,7 +184,8 @@ export function StudySummary({ study }: Props) {
 
         <div className="space-y-3">
           <h3 className="text-sm font-semibold text-primary!">
-            Conditions &amp; Meshes ({conditionMeshRows.length})
+            Conditions &amp; Meshes ({conditions.length} conditions, {meshes.length} condition
+            meshes)
           </h3>
 
           {conditionMeshRows.length > 0 ? (
